@@ -1,0 +1,9 @@
+body {
+  background: var(--background);
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+bi-button {
+  margin: 8px;
+}

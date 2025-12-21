@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bi UI Test</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <h1>Bi UI Test</h1>
+
+  <h2>Button Examples</h2>
+
+  <bi-button variant="text">Text</bi-button>
+  <bi-button shape="square" variant="glass">Glass</bi-button>
+  <bi-button shape="square" variant="outlined">Outlined</bi-button>
+  <bi-button variant="tonal">Tonal -Secondary</bi-button>
+  <bi-button variant="tonal" color="primary">Tonal -Primary</bi-button>
+  <bi-button variant="tonal" color="tertiary">Tonal -Tertiary</bi-button>
+  <bi-button variant="tonal" color="error">Tonal -Error</bi-button>
+  <bi-button variant="tonal" color="success">Tonal -Success</bi-button>
+  <bi-button variant="elevated">Elevated</bi-button>
+  <bi-button variant="filled">Filled -Primary</bi-button>
+  <bi-button variant="filled" color="secondary">Filled -Secondary</bi-button>
+  <bi-button variant="filled" color="tertiary">Filled -Tertiary</bi-button>
+  <bi-button variant="filled" color="error">Filled -Error</bi-button>
+  <bi-button variant="filled" color="success">Filled -Success</bi-button>
+
+  <bi-button disabled variant="filled">disabled</bi-button>
+
+  <bi-button size="xs" variant="tonal">Extra Small</bi-button>
+  <bi-button size="sm" variant="tonal">Small</bi-button>
+  <bi-button size="md" variant="tonal">Medium</bi-button>
+  <bi-button size="lg" variant="tonal">Large</bi-button>
+  <bi-button size="xl" variant="tonal">Extra Large</bi-button>
+
+  <bi-icon-button width="wide" variant="filled">A</bi-icon-button>
+  <bi-icon-button variant="filled">B</bi-icon-button>
+  <bi-icon-button width="narrow" variant="filled">C</bi-icon-button>
+
+  <bi-split-button size="xs" variant="glass">Split Button</bi-split-button>
+  <bi-split-button size="sm" variant="outlined">Split Button</bi-split-button>
+  <bi-split-button size="md" variant="tonal">Split Button</bi-split-button>
+  <bi-split-button size="lg" variant="elevated">Split Button</bi-split-button>
+  <bi-split-button size="xl" variant="filled">Split Button</bi-split-button>
+  <bi-split-button size="xl" variant="filled" color="secondary">Split Button</bi-split-button>
+
+  <bi-fab shape="square" size="sm">A</bi-fab>
+  <bi-fab shape="square" color="primary" size="nm">B</bi-fab>
+  <bi-fab shape="square" color="secondaryContainer" size="md">C</bi-fab>
+  <bi-fab shape="square" color="secondary" size="lg">D</bi-fab>
+  <bi-fab shape="square" color="tertiaryContainer" size="md">E</bi-fab>
+  <bi-fab shape="square" color="tertiary" size="nm">F</bi-fab>
+  <bi-fab shape="square" color="tertiary" size="sm">G</bi-fab>
+
+  <bi-slider min="0" max="100" value="50" size="xs"></bi-slider>
+  <bi-slider min="0" max="100" value="75" size="sm"></bi-slider>
+  <bi-slider min="0" max="100" value="50" size="md"></bi-slider>
+  <bi-slider min="0" max="100" value="75" size="lg"></bi-slider>
+  <bi-slider min="0" max="100" value="50" size="xl"></bi-slider>
+  <bi-slider min="0" max="100" value="50" size="xl" vertical></bi-slider>
+
+  <h2>Switch Examples</h2>
+  
+  <!-- Basic Switches -->
+  <div style="display: flex; gap: 2rem; align-items: center; margin-bottom: 2rem;">
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch></bi-switch>
+        <span>Default Switch</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch checked></bi-switch>
+        <span>Checked Switch</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch disabled></bi-switch>
+        <span>Disabled Switch</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch checked disabled></bi-switch>
+        <span>Disabled Checked</span>
+      </label>
+    </div>
+    
+    <!-- Color Variants -->
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch color="primary"></bi-switch>
+        <span>Primary</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch color="secondary"></bi-switch>
+        <span>Secondary</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch color="tertiary"></bi-switch>
+        <span>Tertiary</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch color="error"></bi-switch>
+        <span>Error</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch color="success"></bi-switch>
+        <span>Success</span>
+      </label>
+    </div>
+    
+    <!-- Size Variants -->
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch size="sm"></bi-switch>
+        <span>Small Size</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch></bi-switch>
+        <span>Medium Size</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch size="lg"></bi-switch>
+        <span>Large Size</span>
+      </label>
+    </div>
+  </div>
+  
+  <!-- Interactive Switch Examples -->
+  <div style="margin-bottom: 2rem;">
+    <h3>Interactive Examples</h3>
+    <div style="display: flex; gap: 2rem; align-items: center;">
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch id="toggle-switch"></bi-switch>
+        <span>Toggle Me</span>
+      </label>
+      
+      <label style="display: flex; align-items: center; gap: 1rem;">
+        <bi-switch id="color-switch" color="success"></bi-switch>
+        <span id="status">Off</span>
+      </label>
+      
+      <div>
+        <bi-button variant="tonal" onclick="programmaticToggle()">Programmatic Toggle</bi-button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Interactive switch functionality
+    document.getElementById('toggle-switch')?.addEventListener('change', (e) => {
+      console.log('Toggle switch changed:', e.detail.checked);
+    });
+    
+    document.getElementById('color-switch')?.addEventListener('change', (e) => {
+      const status = document.getElementById('status');
+      status.textContent = e.detail.checked ? 'On' : 'Off';
+    });
+    
+    function programmaticToggle() {
+      const toggleSwitch = document.getElementById('toggle-switch');
+      if (toggleSwitch) {
+        toggleSwitch.toggle();
+      }
+    }
+  </script>
+
+  <h2>Card Examples</h2>
+  
+  <!-- Attribute-based Card Examples -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <bi-card variant="elevated" title="Elevated Card" subtitle="A" text="BCÇDE" style="width: 300px;">
+      <bi-button slot="actions" variant="tonal">Action</bi-button>
+    </bi-card>
+
+    <bi-card variant="outlined" title="Outlined Card" subtitle="B" text="This is an outlined card with border." style="width: 300px;">
+      <bi-button slot="actions" variant="filled">Learn More</bi-button>
+    </bi-card>
+
+    <bi-card variant="filled" title="Filled Card" subtitle="C" text="This card uses filled variant with surface container background." style="width: 300px;">
+      <bi-button slot="actions" variant="text">View</bi-button>
+    </bi-card>
+  </div>
+
+  <!-- Card Colors -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <bi-card color="primary" title="Primary Card" subtitle="Primary Theme" text="This card uses primary color scheme." style="width: 280px;">
+      <bi-button slot="actions" variant="tonal" color="primary">Action</bi-button>
+    </bi-card>
+
+    <bi-card color="secondary" title="Secondary Card" subtitle="Secondary Theme" text="This card uses secondary color scheme." style="width: 280px;">
+      <bi-button slot="actions" variant="tonal" color="secondary">Action</bi-button>
+    </bi-card>
+
+    <bi-card color="tertiary" title="Tertiary Card" subtitle="Tertiary Theme" text="This card uses tertiary color scheme." style="width: 280px;">
+      <bi-button slot="actions" variant="tonal" color="tertiary">Action</bi-button>
+    </bi-card>
+  </div>
+
+  <!-- Card Sizes -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-start;">
+    <bi-card size="xs" title="XS Card" subtitle="Extra Small" text="Minimal padding and compact layout." style="width: 200px;">
+      <bi-button slot="actions" size="xs" variant="tonal">Go</bi-button>
+    </bi-card>
+
+    <bi-card size="sm" title="SM Card" subtitle="Small" text="Compact layout with reduced spacing." style="width: 220px;">
+      <bi-button slot="actions" size="xs" variant="tonal">Go</bi-button>
+    </bi-card>
+
+    <bi-card size="lg" title="LG Card" subtitle="Large" text="Spacious layout with more content area for detailed information." style="width: 320px;">
+      <bi-button slot="actions" size="md" variant="tonal">Learn More</bi-button>
+      <bi-button slot="actions" size="md" variant="text">Cancel</bi-button>
+    </bi-card>
+
+    <bi-card size="xl" title="XL Card" subtitle="Extra Large" text="Maximum spacing and generous content area for comprehensive information display." style="width: 360px;">
+      <bi-button slot="actions" size="lg" variant="filled">Get Started</bi-button>
+      <bi-button slot="actions" size="lg" variant="tonal">Learn More</bi-button>
+    </bi-card>
+  </div>
+
+  <!-- Interactive Cards -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <bi-card clickable variant="elevated" title="Clickable Card" subtitle="Interactive" text="This entire card is clickable. Click anywhere to trigger action." style="width: 280px;" onclick="alert('Card clicked!')">
+    </bi-card>
+
+    <bi-card disabled title="Disabled Card" subtitle="Inactive" text="This card is disabled and not interactive." style="width: 280px;">
+      <bi-button slot="actions" size="sm" disabled variant="tonal">Disabled Action</bi-button>
+    </bi-card>
+  </div>
+
+  <!-- Simple Usage Examples -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <bi-card title="Simple Card" text="Just title and text, no actions." style="width: 250px;">
+    </bi-card>
+
+    <bi-card subtitle="Only Subtitle" text="Card with only subtitle and text content." style="width: 250px;">
+      <bi-button slot="actions" size="sm" variant="tonal">OK</bi-button>
+    </bi-card>
+
+    <bi-card title="No Subtitle" text="Card with title but no subtitle." style="width: 250px;">
+      <bi-button slot="actions" size="sm" variant="filled">Action</bi-button>
+      <bi-button slot="actions" size="sm" variant="text">Cancel</bi-button>
+    </bi-card>
+  </div>
+
+  <bi-text-field label="Username" variant="outlined"></bi-text-field>
+  <bi-text-field label="Password" variant="filled"></bi-text-field>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>

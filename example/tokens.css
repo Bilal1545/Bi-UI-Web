@@ -1,0 +1,94 @@
+:root {
+  /* Durum Değişkenleri (Context) */
+  --darkmode: False;
+  --transparent: False;
+
+  /* Temel Renkler (Core Colors) */
+  --background: #19120d;
+  --onBackground: #f0dfd7;
+  
+  /* Yüzey Renkleri (Surface) */
+  --surface: #19120d;
+  --surfaceDim: #19120d;
+  --surfaceBright: #413731;
+  --surfaceContainerLowest: #140d08;
+  --surfaceContainerLow: #221a15;
+  --surfaceContainer: #261e19;
+  --surfaceContainerHigh: #312823;
+  --surfaceContainerHighest: #3d332d;
+  --onSurface: #f0dfd7;
+  
+  /* Yüzey Varyantı ve Diğer Yüzey Etkileşim Renkleri */
+  --surfaceVariant: #52443c;
+  --onSurfaceVariant: #d7c3b7;
+  --inverseSurface: #f0dfd7;
+  --inverseOnSurface: #382e29;
+
+  /* Çizgi ve Kontur Renkleri */
+  --outline: #9f8d83;
+  --outlineVariant: #52443c;
+  
+  /* Gölge ve Ekran Renkleri */
+  --shadow: #000000;
+  --scrim: #000000;
+
+  /* Ana Renk Paleti (Primary) */
+  --primary: #ffb786;
+  --onPrimary: #502400;
+  --primaryContainer: #6e390d;
+  --onPrimaryContainer: #ffdcc6;
+  --inversePrimary: #8a5023;
+  --primaryFixed: #ffdcc6;
+  --primaryFixedDim: #ffb786;
+  --onPrimaryFixed: #311400;
+  --onPrimaryFixedVariant: #6e390d;
+
+  /* İkincil Renk Paleti (Secondary) */
+  --secondary: #e5bfa8;
+  --onSecondary: #422b1b;
+  --secondaryContainer: #5b4130;
+  --onSecondaryContainer: #ffdcc6;
+  --secondaryFixed: #ffdcc6;
+  --secondaryFixedDim: #e5bfa8;
+  --onSecondaryFixed: #2b1708;
+  --onSecondaryFixedVariant: #5b4130;
+
+  /* Üçüncül Renk Paleti (Tertiary) */
+  --tertiary: #c9ca93;
+  --onTertiary: #31320a;
+  --tertiaryContainer: #48491f;
+  --onTertiaryContainer: #e5e6ad;
+  --tertiaryFixed: #e5e6ad;
+  --tertiaryFixedDim: #c9ca93;
+  --onTertiaryFixed: #1c1d00;
+  --onTertiaryFixedVariant: #48491f;
+
+  /* Hata ve Başarı Renkleri */
+  --error: #ffb4ab;
+  --onError: #690005;
+  --errorContainer: #93000a;
+  --onErrorContainer: #ffdad6;
+  
+  --success: #B5CCBA;
+  --onSuccess: #213528;
+  --successContainer: #374B3E;
+  --onSuccessContainer: #D1E9D6;
+
+  /* Terminal Renkleri (Genellikle kod blokları veya özel öğeler için) */
+  --term0: #0D1C20;
+  --term1: #8383FF;
+  --term2: #63DFD4;
+  --term3: #75FCDD;
+  --term4: #76B4BD;
+  --term5: #7AAEEA;
+  --term6: #81D8D7;
+  --term7: #CCDBD5;
+  --term8: #B1BCB5;
+  --term9: #BCB9FF;
+  --term10: #F6FFFD;
+  --term11: #FFFFFF;
+  --term12: #BEE3E5;
+  --term13: #C8DAFF;
+  --term14: #E5FFFE;
+  --term15: #ADEDF6;
+}
