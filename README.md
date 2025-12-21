@@ -1,8 +1,8 @@
-# Bi-Design Kit Web
+# Bi-UI Web
 
 **A Material 3 inspired web design kit for lazy developers.**
 
-Bi-Design Kit is a lightweight Web Components–based UI kit inspired by Google’s Material Design 3.  
+Bi-UI is a lightweight Web Components–based UI kit inspired by Google’s Material Design 3.  
 It is designed for developers who want clean, modern UI components **without frameworks, build tools, or complexity**.
 
 ---
