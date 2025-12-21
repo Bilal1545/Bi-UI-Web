@@ -1,88 +1,111 @@
-# Bi-Design Kit Web
+# Bi-UI
 
-Material Design 3 standartlarına uygun modern web component kütüphanesi.
+**A Material 3 inspired web design kit for lazy developers.**
 
-## 📦 Component'ler
+Bi-UI is a lightweight Web Components–based UI kit inspired by Google’s Material Design 3.  
+It is designed for developers who want clean, modern UI components **without frameworks, build tools, or complexity**.
 
-### 🎨 UI Element'leri
-- **bi-button** - Buton component'i
-- **bi-card** - Kart component'i  
-- **bi-fab** - Floating Action Button
-- **bi-icon-button** - İkon butonu
-- **bi-switch** - Toggle switch
-- **bi-slider** - Kaydırıcı
-- **bi-text-field** - Metin giriş alanı
-- **bi-split-button** - Bölünmüş buton
+---
 
-## 🚀 Hızlı Başlangıç
+## ✨ Features
 
-<link rel="stylesheet" href="example/tokens.css">
+- 🧩 Native **Web Components**
+- 🎨 **Material 3 inspired** design language
+- ⚡ No framework required (no React, Vue, etc.)
+- 🧠 Simple API, minimal configuration
+- 🌗 Themeable with CSS variables
+- 🧱 Modular & tree-shake–friendly
+- 💤 Built for lazy people (less code, more UI)
+
+---
+
+## 📦 Components
+
+Currently available components include:
+
+- `bi-button`
+- `bi-icon-button`
+- `bi-text-field`
+- `bi-slider`
+- `bi-fab`
+- `bi-card`
+- `bi-split-button`
+- `bi-switch`
+- (More coming soon…)
+
+---
+
+## 🚀 Usage
+
+### Include the library
 
 ```html
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="src/styles/tokens.css">
-    <script type="module" src="src/components/index.js"></script>
-</head>
-<body>
-    <!-- Component kullanımı -->
-    <bi-button variant="filled">Tıkla</bi-button>
-    <bi-text-field label="Adınız"></bi-text-field>
-</body>
-</html>
+<script type="module" src="src/main.js"></script>
+````
+
+### Button example
+
+```html
+<bi-button variant="filled">
+  Click me
+</bi-button>
 ```
 
-<bi-button variant="tonal" label="Adınız">Deneme</bi-button>
+### Icon Button example
 
-## 🎨 Tema
-
-Material Design 3 renk sistemi kullanılır. Tüm renkler `src/styles/tokens.css` dosyasında tanımlıdır:
-
-```css
-:root {
-  --primary: #ffb786;
-  --onPrimary: #502400;
-  --surface: #19120d;
-  --onSurface: #f0dfd7;
-  /* ... */
-}
+```html
+<bi-icon-button variant="tonal">
+  ✕
+</bi-icon-button>
 ```
 
-## 🔧 Geliştirme
+### Text Field example
 
-```bash
-# HTTP server ile çalıştır
-python3 -m http.server 8080
-
-# Demo sayfasını aç
-http://localhost:8080/text-fields-demo.html
+```html
+<bi-text-field
+  label="Username"
+  placeholder="Enter your username"
+  variant="outlined">
+</bi-text-field>
 ```
 
-## 📱 Demo
+---
 
-- [Text Fields Demo](text-fields-demo.html) - Metin alanları özellikleri
+## 🎨 Theming
 
-## 🏗️ Proje Yapısı
+Bi-UI uses CSS variables compatible with Material 3 color tokens. If you don't specify them, it won't work.
 
-```
-src/
-├── components/          # Web component'ler
-│   ├── bi-button.js
-│   ├── bi-card.js
-│   ├── bi-fab.js
-│   ├── bi-icon-button.js
-│   ├── bi-slider.js
-│   ├── bi-split-button.js
-│   ├── bi-switch.js
-│   ├── bi-text-field.js
-│   └── index.js
-├── styles/
-│   └── tokens.css      # Material 3 token'ları
-└── utils/               # Yardımcı fonksiyonlar
-```
+For example look [this](example/tokens.css).
 
-## 📄 Lisans
+> For more information, check out the [wiki](https://bilal.affedilmez.com/design-kit/index.htm#docs). (Not usable now...)
+
+---
+
+## 🔐 Security & Customization
+
+* Components use **Shadow DOM**
+* Styles are encapsulated by default
+* No tracking, no telemetry, no bullshit
+
+---
+
+## 📄 License
 
 MIT License
-<script type="module" src="./src/main.js"></script>
+Use it freely. Modify it. Ship it. Just don’t sue.
+
+---
+
+## 🧠 Philosophy
+
+> UI libraries shouldn’t feel like a second job.
+
+Bi-UI exists because sometimes you just want buttons and text fields
+that **look good and work**, without pulling half of npm.
+
+---
+
+## 📌 Status
+
+🚧 **Early development**
+APIs may change. Components will grow.
