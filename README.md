@@ -17,7 +17,16 @@ It is designed for developers who want clean, modern UI components **without fra
 - 🧱 Modular & tree-shake–friendly
 - 💤 Built for lazy people (less code, more UI)
 
----
+--- 
+<link rel="stylesheet" href="./example/tokens.css">
+<svg width="300" height="120">
+  <foreignObject x="20" y="20" width="260" height="80">
+    <bi-button variant="tonal">
+      Demo
+    </bi-button>
+  </foreignObject>
+</svg>
+<script type="module" src="./src/main.js"></script>
 
 ## 📦 Components
 
