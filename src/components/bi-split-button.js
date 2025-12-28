@@ -71,10 +71,10 @@ class BiSplitButton extends HTMLElement {
         align-items: center;
         justify-content: center;
         white-space: nowrap; 
-        --color: var(--primary);
-        --onColor: var(--onPrimary);
-        --colorContainer: var(--secondaryContainer);
-        --onColorContainer: var(--onSecondaryContainer);
+        --color: var(--bi-sys-color-primary);
+        --onColor: var(--bi-sys-color-on-primary);
+        --colorContainer: var(--bi-sys-color-secondary-container);
+        --onColorContainer: var(--bi-sys-color-on-secondary-container);
       }
       
       /* DROPDOWN İKONU STİLİ VE ANİMASYONU */
@@ -130,47 +130,40 @@ class BiSplitButton extends HTMLElement {
       }
 
       :host([color="primary"]) button {
-        --colorContainer: var(--primaryContainer);
-        --onColorContainer: var(--onPrimaryContainer);
+        --colorContainer: var(--bi-sys-color-primary-container);
+        --onColorContainer: var(--bi-sys-color-on-primary-container);
       }
 
       :host([color="secondary"]) button {
-        --color: var(--secondary);
-        --onColor: var(--onSecondary);
+        --color: var(--bi-sys-color-secondary);
+        --onColor: var(--bi-sys-color-on-secondary);
       }
 
       :host([color="tertiary"]) button {
-        --color: var(--tertiary);
-        --onColor: var(--onTertiary);
-        --colorContainer: var(--tertiaryContainer);
-        --onColorContainer: var(--onTertiaryContainer);
+        --color: var(--bi-sys-color-tertiary);
+        --onColor: var(--bi-sys-color-on-tertiary);
+        --colorContainer: var(--bi-sys-color-tertiary-container);
+        --onColorContainer: var(--bi-sys-color-on-tertiary-container);
       }
 
       :host([color="error"]) button {
-        --color: var(--error);
-        --onColor: var(--onError);
-        --colorContainer: var(--errorContainer);
-        --onColorContainer: var(--onErrorContainer);
-      }
-
-      :host([color="success"]) button {
-        --color: var(--success);
-        --onColor: var(--onSuccess);
-        --colorContainer: var(--successContainer);
-        --onColorContainer: var(--onSuccessContainer);
+        --color: var(--bi-sys-color-error);
+        --onColor: var(--bi-sys-color-on-error);
+        --colorContainer: var(--bi-sys-color-error-container);
+        --onColorContainer: var(--bi-sys-color-on-error-container);
       }
 
       :host([variant="glass"]) button {
         background: color-mix(
           in srgb,
-          var(--primary) 8%,
+          var(--bi-sys-color-primary) 8%,
           transparent 92%
         );
         box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.025);
         color: var(--color);
         --ripple-color: color-mix(
           in srgb,
-          var(--primary) 100%,
+          var(--bi-sys-color-primary) 100%,
           transparent
         );
       }
@@ -178,7 +171,7 @@ class BiSplitButton extends HTMLElement {
       :host([variant="glass"]) button:hover {
         background: color-mix(
           in srgb,
-          var(--primary) 12%,
+          var(--bi-sys-color-primary) 12%,
           transparent 88%
         );
         box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.075);
@@ -187,7 +180,7 @@ class BiSplitButton extends HTMLElement {
       :host([variant="glass"][is-open]) .btn-dropdown {
         background: color-mix(
           in srgb,
-          var(--primary) 12%,
+          var(--bi-sys-color-primary) 12%,
           transparent 88%
         );
       }
@@ -195,7 +188,7 @@ class BiSplitButton extends HTMLElement {
       :host([variant="glass"][is-open]) .btn-dropdown:hover {
         background: color-mix(
           in srgb,
-          var(--primary) 16%,
+          var(--bi-sys-color-primary) 16%,
           transparent 84%
         );
       }
@@ -207,11 +200,11 @@ class BiSplitButton extends HTMLElement {
       :host([variant="outlined"]) .btn-main,
       :host([variant="outlined"]) .btn-dropdown {
         background: transparent;
-        color: var(--onBackground);
-        border: 0.0625rem solid var(--outline);
+        color: var(--bi-sys-color-on-background);
+        border: 0.0625rem solid var(--bi-sys-color-outline);
         --ripple-color: color-mix(
           in srgb,
-          var(--primary) 100%,
+          var(--bi-sys-color-primary) 100%,
           transparent
         );
       }
@@ -220,7 +213,7 @@ class BiSplitButton extends HTMLElement {
       :host([variant="outlined"]) .btn-dropdown:hover {
         background: color-mix(
           in srgb,
-          var(--primary) 8%,
+          var(--bi-sys-color-primary) 8%,
           transparent 92%
         );
       }
@@ -228,7 +221,7 @@ class BiSplitButton extends HTMLElement {
       :host([variant="outlined"][is-open]) .btn-dropdown {
         background: color-mix(
           in srgb,
-          var(--primary) 12%,
+          var(--bi-sys-color-primary) 12%,
           transparent 88%
         );
       }
@@ -236,7 +229,7 @@ class BiSplitButton extends HTMLElement {
       :host([variant="outlined"][is-open]) .btn-dropdown:hover {
         background: color-mix(
           in srgb,
-          var(--primary) 16%,
+          var(--bi-sys-color-primary) 16%,
           transparent 84%
         );
       }
@@ -264,13 +257,13 @@ class BiSplitButton extends HTMLElement {
 
       :host([variant="elevated"]) .btn-main,
       :host([variant="elevated"]) .btn-dropdown {
-        background: var(--surfaceContainerLow); 
-        color: var(--primary);
+        background: var(--bi-sys-color-surface-container-low); 
+        color: var(--bi-sys-color-primary);
         box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1); 
         --ripple-color: color-mix(
           in srgb,
-          var(--primary) 45%,
-          var(--surfaceContainerLow)
+          var(--bi-sys-color-primary) 45%,
+          var(--bi-sys-color-surface-container-low)
         );
       }
 
@@ -278,24 +271,24 @@ class BiSplitButton extends HTMLElement {
       :host([variant="elevated"]) .btn-dropdown:hover {
         background: color-mix(
           in srgb,
-          var(--surfaceContainerLow) 85%,
-          var(--primary)
+          var(--bi-sys-color-surface-container-low) 85%,
+          var(--bi-sys-color-primary)
         );
       }
 
       :host([is-open][variant="elevated"]) .btn-dropdown {
         background: color-mix(
           in srgb,
-          var(--surfaceContainerLow) 85%,
-          var(--primary)
+          var(--bi-sys-color-surface-container-low) 85%,
+          var(--bi-sys-color-primary)
         );
       }
 
       :host([is-open][variant="elevated"]) .btn-dropdown:hover {
         background: color-mix(
           in srgb,
-          var(--surfaceContainerLow) 80%,
-          var(--primary)
+          var(--bi-sys-color-surface-container-low) 80%,
+          var(--bi-sys-color-primary)
         );
       }
       

@@ -81,7 +81,7 @@ class BiTextField extends HTMLElement {
           background: transparent;
           padding: 16px;
           font-size: 1rem;
-          color: var(--onSurface);
+          color: var(--bi-sys-color-on-surface);
         }
 
         .label {
@@ -89,7 +89,7 @@ class BiTextField extends HTMLElement {
           left: 16px;
           top: 50%;
           transform: translateY(-50%);
-          color: var(--onSurfaceVariant);
+          color: var(--bi-sys-color-on-surface-variant);
           pointer-events: none;
           transition: 0.2s cubic-bezier(.2,0,0,1);
           background: transparent;
@@ -98,45 +98,45 @@ class BiTextField extends HTMLElement {
         .label.floated,
         .label.focused {
           transform: translateY(-130%) scale(0.75);
-          color: var(--primary);
+          color: var(--bi-sys-color-primary);
         }
 
         :host([error]) .label {
-          color: var(--error);
+          color: var(--bi-sys-color-error);
         }
 
         /* ===== FILLED ===== */
 
         :host([variant="filled"]) .field {
-          background: var(--surfaceContainerHighest);
-          border-bottom: .0625rem solid var(--onSurfaceVariant);
+          background: var(--bi-sys-color-surface-container-highest);
+          border-bottom: .0625rem solid var(--bi-sys-color-on-surface-variant);
           border-radius: .25rem .25rem 0 0;
         }
 
         :host([variant="filled"]) .field:focus-within {
-          border-bottom: 2px solid var(--primary);
+          border-bottom: 2px solid var(--bi-sys-color-primary);
         }
 
         /* ===== OUTLINED ===== */
 
         :host([variant="outlined"]) .field {
-          border: 1px solid var(--outline);
+          border: 1px solid var(--bi-sys-color-outline);
           border-radius: 4px;
         }
 
         :host([variant="outlined"]) .field:focus-within {
-          border-color: var(--primary);
+          border-color: var(--bi-sys-color-primary);
         }
 
         :host([variant="outlined"]) .label {
-          background: var(--surface);
+          background: var(--bi-sys-color-surface);
           padding: 0 4px;
         }
 
         /* ===== ERROR ===== */
 
         :host([error]) .field {
-          border-color: var(--error);
+          border-color: var(--bi-sys-color-error);
         }
       </style>
 

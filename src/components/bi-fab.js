@@ -49,10 +49,10 @@ class BiFab extends HTMLElement {
       }
 
       button {
-        background: var(--bg, var(--surfaceContainerHigh));
-        --color: var(--primary);
+        background: var(--bg, var(--bi-sys-color-surface-container-high));
+        --color: var(--bi-sys-color-primary);
         color: var(--color);
-        --bg: var(--surfaceContainerHigh);
+        --bg: var(--bi-sys-color-surface-container-high);
         backdrop-filter: blur(0.375rem);
         box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); 
         padding: 0; 
@@ -71,18 +71,18 @@ class BiFab extends HTMLElement {
       }
 
       :host([variant="primary"]) button {
-        --bg: var(--primary);
-        --color: var(--onPrimary);
+        --bg: var(--bi-sys-color-primary);
+        --color: var(--bi-sys-color-on-primary);
       }
 
       :host([variant="secondary"]) button {
-        --bg: var(--secondary);
-        --color: var(--onSecondary);
+        --bg: var(--bi-sys-color-secondary);
+        --color: var(--bi-sys-color-on-secondary);
       }
 
       :host([variant="tertiary"]) button {
-        --bg: var(--tertiary);
-        --color: var(--onTertiary);
+        --bg: var(--bi-sys-color-tertiary);
+        --color: var(--bi-sys-color-on-tertiary);
       }
 
 

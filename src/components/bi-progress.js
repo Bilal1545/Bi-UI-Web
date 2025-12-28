@@ -19,9 +19,9 @@ class BiProgress extends HTMLElement {
                 display: block;
                 padding: 0.5rem 0;
 
-                --active-color: var(--primary, #ffb786);
-                --active-color-soft: color-mix(in srgb, var(--active-color) 70%, white);
-                --inactive-color: var(--surfaceContainerHighest, #3d332d);
+                --active-color: var(--bi-sys-color-primary, #ffb786);
+                --active-color-soft: color-mix(in srgb, var(--bi-sys-color-primary) 70%, white);
+                --inactive-color: var(--bi-sys-color-surface-container-highest, #3d332d);
 
                 --track-height: 4px;
                 --track-gap: 6px;

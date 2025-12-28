@@ -35,10 +35,10 @@ class BiSlider extends HTMLElement {
             :host {
                 display: block;
                 padding: 1rem 0;
-                --track-color: var(--primary, #ffb786);
-                --inactive-color: var(--surfaceContainerHighest, #3d332d);
-                --thumb-color: var(--primary, #ffb786);
-                --thumb-state-layer: var(--onPrimary, #502400);
+                --track-color: var(--bi-sys-color-primary, #ffb786);
+                --inactive-color: var(--bi-sys-color-surface-container-highest, #3d332d);
+                --thumb-color: var(--bi-sys-color-primary, #ffb786);
+                --thumb-state-layer: var(--bi-sys-color-on-primary, #502400);
                 
                 /* Material3 Boyutları */
                 --thumb-width: 4px;
@@ -279,8 +279,8 @@ class BiSlider extends HTMLElement {
             /* --- DEĞER GÖSTERGESİ (Thumb Label) --- */
             .thumb-label {
                 position: absolute;
-                background: var(--primaryContainer, #6e390d);
-                color: var(--onPrimaryContainer, #ffdcc6);
+                background: var(--bi-sys-color-primary-container, #6e390d);
+                color: var(--bi-sys-color-on-primary-container, #ffdcc6);
                 padding: 4px 8px;
                 border-radius: 4px;
                 font-size: 12px;
@@ -318,11 +318,11 @@ class BiSlider extends HTMLElement {
             }
 
             input[type="range"]:focus::-webkit-slider-thumb {
-                box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 0 0 2px var(--primary, #ffb786);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 0 0 2px var(--bi-sys-color-primary, #ffb786);
             }
 
             input[type="range"]:focus::-moz-range-thumb {
-                box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 0 0 2px var(--primary, #ffb786);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 0 0 2px var(--bi-sys-color-primary, #ffb786);
             }
 
             /* --- DISABLED STATE --- */
@@ -336,21 +336,21 @@ class BiSlider extends HTMLElement {
             }
 
             :host([disabled]) input[type="range"]::-webkit-slider-thumb {
-                background: var(--onSurface, #f0dfd7);
+                background: var(--bi-sys-color-on-surface, #f0dfd7);
                 box-shadow: none;
             }
 
             :host([disabled]) input[type="range"]::-moz-range-thumb {
-                background: var(--onSurface, #f0dfd7);
+                background: var(--bi-sys-color-on-surface, #f0dfd7);
                 box-shadow: none;
             }
 
             :host([disabled]) .slider-container::before {
-                background: var(--onSurface, #f0dfd7);
+                background: var(--bi-sys-color-on-surface, #f0dfd7);
             }
 
             :host([disabled]) .slider-container::after {
-                background: var(--onSurface, #f0dfd7);
+                background: var(--bi-sys-color-on-surface, #f0dfd7);
             }
         `;
 

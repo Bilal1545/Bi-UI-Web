@@ -69,10 +69,10 @@ class BiButton extends HTMLElement {
           background 0.2s ease,
           box-shadow 0.2s ease;
 
-        --color: var(--primary);
-        --onColor: var(--onPrimary);
-        --colorContainer: var(--secondaryContainer);
-        --onColorContainer: var(--onSecondaryContainer);
+        --color: var(--bi-sys-color-primary);
+        --onColor: var(--bi-sys-color-on-primary);
+        --colorContainer: var(--bi-sys-color-secondary-container);
+        --onColorContainer: var(--bi-sys-color-on-secondary-container);
 
         --ripple-color: currentColor;
       }
@@ -89,34 +89,27 @@ class BiButton extends HTMLElement {
       /* =============== COLORS =============== */
 
       :host([color="primary"]) :is(button,a) {
-        --colorContainer: var(--primaryContainer);
-        --onColorContainer: var(--onPrimaryContainer);
+        --colorContainer: var(--bi-sys-color-primary-container);
+        --onColorContainer: var(--bi-sys-color-on-primary-container);
       }
 
       :host([color="secondary"]) :is(button,a) {
-        --color: var(--secondary);
-        --onColor: var(--onSecondary);
+        --color: var(--bi-sys-color-secondary);
+        --onColor: var(--bi-sys-color-on-secondary);
       }
 
       :host([color="tertiary"]) :is(button,a) {
-        --color: var(--tertiary);
-        --onColor: var(--onTertiary);
-        --colorContainer: var(--tertiaryContainer);
-        --onColorContainer: var(--onTertiaryContainer);
+        --color: var(--bi-sys-color-tertiary);
+        --onColor: var(--bi-sys-color-on-tertiary);
+        --colorContainer: var(--bi-sys-color-tertiary-container);
+        --onColorContainer: var(--bi-sys-color-on-tertiary-container);
       }
 
       :host([color="error"]) :is(button,a) {
-        --color: var(--error);
-        --onColor: var(--onError);
-        --colorContainer: var(--errorContainer);
-        --onColorContainer: var(--onErrorContainer);
-      }
-
-      :host([color="success"]) :is(button,a) {
-        --color: var(--success);
-        --onColor: var(--onSuccess);
-        --colorContainer: var(--successContainer);
-        --onColorContainer: var(--onSuccessContainer);
+        --color: var(--bi-sys-color-error);
+        --onColor: var(--bi-sys-color-on-error);
+        --colorContainer: var(--bi-sys-color-error-container);
+        --onColorContainer: var(--bi-sys-color-on-error-container);
       }
 
       /* ============== VARIANTS ============== */
@@ -133,23 +126,23 @@ class BiButton extends HTMLElement {
 
       /* ---- GLASS ---- */
       :host([variant="glass"]) :is(button,a) {
-        background: color-mix(in srgb, var(--primary) 8%, transparent);
+        background: color-mix(in srgb, var(--bi-sys-color-primary) 8%, transparent);
         color: var(--color);
       }
 
       :host([variant="glass"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--primary) 12%, transparent);
+        background: color-mix(in srgb, var(--bi-sys-color-primary) 12%, transparent);
       }
 
       /* ---- OUTLINED ---- */
       :host([variant="outlined"]) :is(button,a) {
         background: transparent;
-        color: var(--onBackground);
-        border: 1px solid var(--outline);
+        color: var(--bi-sys-color-on-background);
+        border: 1px solid var(--bi-sys-color-outline);
       }
 
       :host([variant="outlined"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--primary) 8%, transparent);
+        background: color-mix(in srgb, var(--bi-sys-color-primary) 8%, transparent);
       }
 
       /* ---- FILLED ---- */
@@ -175,13 +168,13 @@ class BiButton extends HTMLElement {
 
       /* ---- ELEVATED ---- */
       :host([variant="elevated"]) :is(button,a) {
-        background: var(--surfaceContainerLow);
-        color: var(--primary);
+        background: var(--bi-sys-color-surface-container-low);
+        color: var(--bi-sys-color-primary);
         box-shadow: 0 1px 3px rgba(0,0,0,0.15);
       }
 
       :host([variant="elevated"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--surfaceContainerLow) 85%, var(--primary));
+        background: color-mix(in srgb, var(--bi-sys-color-surface-container-low) 85%, var(--bi-sys-color-primary));
       }
 
       :host([shape="square"]) button {

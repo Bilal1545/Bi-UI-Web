@@ -34,10 +34,10 @@ class BiIconButton extends HTMLElement {
         color: var(--fg); 
         background: transparent; 
 
-        --color: var(--primary);
-        --onColor: var(--onPrimary);
-        --colorContainer: var(--secondaryContainer);
-        --onColorContainer: var(--onSecondaryContainer);
+        --color: var(--bi-sys-color-primary);
+        --onColor: var(--bi-sys-color-on-primary);
+        --colorContainer: var(--bi-sys-color-secondary-container);
+        --onColorContainer: var(--bi-sys-color-on-secondary-container);
       }
       
       :host([disabled]) button {
@@ -88,36 +88,29 @@ class BiIconButton extends HTMLElement {
       /* =============== COLORS =============== */
 
       :host([color="primary"]) button {
-        --colorContainer: var(--primaryContainer);
-        --onColorContainer: var(--onPrimaryContainer); 
+        --colorContainer: var(--bi-sys-color-primary-container);
+        --onColorContainer: var(--bi-sys-color-on-primary-container); 
       } 
       
       :host([color="secondary"]) button { 
-        --color: var(--secondary); 
-        --onColor: var(--onSecondary); 
+        --color: var(--bi-sys-color-secondary); 
+        --onColor: var(--bi-sys-color-on-secondary); 
       } 
       
       :host([color="tertiary"]) button { 
-        --color: var(--tertiary); 
-        --onColor: var(--onTertiary); 
-        --colorContainer: var(--tertiaryContainer); 
-        --onColorContainer: var(--onTertiaryContainer); 
+        --color: var(--bi-sys-color-tertiary); 
+        --onColor: var(--bi-sys-color-on-tertiary); 
+        --colorContainer: var(--bi-sys-color-tertiary-container); 
+        --onColorContainer: var(--bi-sys-color-on-tertiary-container); 
       } 
 
       :host([color="error"]) button { 
-        --color: var(--error); 
-        --onColor: var(--onError); 
-        --colorContainer: var(--errorContainer); 
-        --onColorContainer: var(--onErrorContainer); 
+        --color: var(--bi-sys-color-error); 
+        --onColor: var(--bi-sys-color-on-error); 
+        --colorContainer: var(--bi-sys-color-error-container); 
+        --onColorContainer: var(--bi-sys-color-on-error-container); 
       }
-      
-      :host([color="success"]) button { 
-        --color: var(--success); 
-        --onColor: var(--onSuccess); 
-        --colorContainer: var(--successContainer); 
-        --onColorContainer: var(--onSuccessContainer);
-      }
-
+        
       /* ---- TEXT ---- */
       :host([variant="text"]) button {
         background: transparent;
@@ -142,14 +135,14 @@ class BiIconButton extends HTMLElement {
       :host([variant="glass"]) button {
         background: color-mix(
           in srgb,
-          var(--primary) 8%,
+          var(--bi-sys-color-primary) 8%,
           transparent 92%
         );
         color: var(--color);
 
         --ripple-color: color-mix(
           in srgb,
-          var(--primary) 100%,
+          var(--bi-sys-color-primary) 100%,
           transparent
         );
       }
@@ -157,7 +150,7 @@ class BiIconButton extends HTMLElement {
       :host([variant="glass"]) button:hover {
         background: color-mix(
           in srgb,
-          var(--primary) 12%,
+          var(--bi-sys-color-primary) 12%,
           transparent 88%
         );
       }
@@ -165,12 +158,12 @@ class BiIconButton extends HTMLElement {
       /* ---- OUTLINED ---- */
       :host([variant="outlined"]) button {
         background: transparent;
-        color: var(--onBackground);
-        border: 1px solid var(--outline);
+        color: var(--bi-sys-color-on-background);
+        border: 1px solid var(--bi-sys-color-outline);
 
         --ripple-color: color-mix(
           in srgb,
-          var(--primary) 100%,
+          var(--bi-sys-color-primary) 100%,
           transparent
         );
       }
@@ -178,7 +171,7 @@ class BiIconButton extends HTMLElement {
       :host([variant="outlined"]) button:hover {
         background: color-mix(
           in srgb,
-          var(--primary) 8%,
+          var(--bi-sys-color-primary) 8%,
           transparent 92%
         );
       }
@@ -217,23 +210,23 @@ class BiIconButton extends HTMLElement {
 
       /* ---- ELEVATED ---- */
       :host([variant="elevated"]) button {
-        background: var(--surfaceContainerLow);
-        color: var(--primary);
+        background: var(--bi-sys-color-surface-container-low);
+        color: var(--bi-sys-color-primary);
 
         box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 
         --ripple-color: color-mix(
           in srgb,
-          var(--primary) 45%,
-          var(--surfaceContainerLow)
+          var(--bi-sys-color-primary) 45%,
+          var(--bi-sys-color-surface-container-low)
         );
       }
 
       :host([variant="elevated"]) button:hover {
         background: color-mix(
           in srgb,
-          var(--surfaceContainerLow) 85%,
-          var(--primary)
+          var(--bi-sys-color-surface-container-low) 85%,
+          var(--bi-sys-color-primary)
         );
       }
     `;

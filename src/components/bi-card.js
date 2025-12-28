@@ -55,8 +55,8 @@ class BiCard extends HTMLElement {
     const style = document.createElement("style");
     style.textContent = `
       .card {
-        background: var(--surfaceContainerLow);
-        color: var(--onSurface);
+        background: var(--bi-sys-color-surface-container-low);
+        color: var(--bi-sys-color-on-surface);
         border-radius: 1rem;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 3px 1px rgba(0, 0, 0, 0.05);
         transition: all 0.2s ease;
@@ -206,18 +206,18 @@ class BiCard extends HTMLElement {
 
       /* Variant styles */
       :host([variant="outlined"]) .card {
-        background: var(--surface);
-        border: 1px solid var(--outline);
+        background: var(--bi-sys-color-surface);
+        border: 1px solid var(--bi-sys-color-outline);
         box-shadow: none;
       }
 
       :host([variant="outlined"]) .card:hover {
         box-shadow: none;
-        border-color: var(--onSurface);
+        border-color: var(--bi-sys-color-on-surface);
       }
 
       :host([variant="filled"]) .card {
-        background: var(--surfaceContainer);
+        background: var(--bi-sys-color-surface-container);
         box-shadow: none;
       }
 
@@ -226,7 +226,7 @@ class BiCard extends HTMLElement {
       }
 
       :host([variant="elevated"]) .card {
-        background: var(--surfaceContainerLow);
+        background: var(--bi-sys-color-surface-container-low);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
       }
 
@@ -236,28 +236,28 @@ class BiCard extends HTMLElement {
 
       /* Color variants */
       :host([color="primary"]) .card {
-        background: var(--primaryContainer);
-        color: var(--onPrimaryContainer);
+        background: var(--bi-sys-color-primary-container);
+        color: var(--bi-sys-color-on-primary-container);
       }
 
       :host([color="secondary"]) .card {
-        background: var(--secondaryContainer);
-        color: var(--onSecondaryContainer);
+        background: var(--bi-sys-color-secondary-container);
+        color: var(--bi-sys-color-on-secondary-container);
       }
 
       :host([color="tertiary"]) .card {
-        background: var(--tertiaryContainer);
-        color: var(--onTertiaryContainer);
+        background: var(--bi-sys-color-tertiary-container);
+        color: var(--bi-sys-color-on-tertiary-container);
       }
 
       :host([color="surface"]) .card {
-        background: var(--surface);
-        color: var(--onSurface);
+        background: var(--bi-sys-color-surface);
+        color: var(--bi-sys-color-on-surface);
       }
 
       :host([color="surface-variant"]) .card {
-        background: var(--surfaceVariant);
-        color: var(--onSurfaceVariant);
+        background: var(--bi-sys-color-surface-variant);
+        color: var(--bi-sys-color-on-surface-variant);
       }
 
       /* Clickable card */

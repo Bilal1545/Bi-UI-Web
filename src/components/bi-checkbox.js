@@ -78,7 +78,7 @@ class BiCheckbox extends HTMLElement {
         cursor: pointer;
 
         background: transparent;
-        color: var(--primary);
+        color: var(--bi-sys-color-primary);
 
         transition: background 0.2s ease;
         --ripple-color: currentColor;
@@ -102,7 +102,7 @@ class BiCheckbox extends HTMLElement {
         height: 1.25rem;
 
         border-radius: 4px;
-        border: 2px solid var(--outline);
+        border: 2px solid var(--bi-sys-color-outline);
 
         display: flex;
         align-items: center;
@@ -127,8 +127,8 @@ class BiCheckbox extends HTMLElement {
       /* ===== CHECKED ===== */
 
       :host([checked]) .box {
-        background: var(--primary);
-        border-color: var(--primary);
+        background: var(--bi-sys-color-primary);
+        border-color: var(--bi-sys-color-primary);
       }
 
       :host([checked]) .icon.check {
@@ -138,8 +138,8 @@ class BiCheckbox extends HTMLElement {
       /* ===== INDETERMINATE ===== */
 
       :host([indeterminate]) .box {
-        background: var(--primary);
-        border-color: var(--primary);
+        background: var(--bi-sys-color-primary);
+        border-color: var(--bi-sys-color-primary);
       }
 
       :host([indeterminate]) .icon.indeterminate {

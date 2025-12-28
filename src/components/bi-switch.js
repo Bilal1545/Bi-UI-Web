@@ -42,10 +42,10 @@ class BiSwitch extends HTMLElement {
         --switch-track-width: 3rem;
         --switch-track-height: 1.5rem;
         --switch-thumb-size: 1.25rem;
-        --track-color: var(--surfaceVariant);
-        --track-checked-color: var(--primary);
-        --thumb-color: var(--surface);
-        --thumb-checked-color: var(--onPrimary);
+        --track-color: var(--bi-sys-color-surface-variant);
+        --track-checked-color: var(--bi-sys-color-primary);
+        --thumb-color: var(--bi-sys-color-surface);
+        --thumb-checked-color: var(--bi-sys-color-on-primary);
         --disabled-opacity: 0.38;
       }
 
@@ -131,13 +131,13 @@ class BiSwitch extends HTMLElement {
 
       /* Focus state */
       .switch-input:focus-visible ~ .switch-track .switch-ripple {
-        background-color: color-mix(in srgb, var(--track-checked-color) 20%, transparent);
+        background-color: color-mix(in srgb, var(--bi-sys-color-primary) 20%, transparent);
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
       }
 
       .switch-input:focus-visible ~ .switch-track {
-        outline: 0.125rem solid var(--track-checked-color);
+        outline: 0.125rem solid var(--bi-sys-color-primary);
         outline-offset: 0.125rem;
       }
 
@@ -181,23 +181,18 @@ class BiSwitch extends HTMLElement {
 
       /* Color variations */
       :host([color="secondary"]) {
-        --track-checked-color: var(--secondary);
-        --thumb-checked-color: var(--onSecondary);
+        --track-checked-color: var(--bi-sys-color-secondary);
+        --thumb-checked-color: var(--bi-sys-color-on-secondary);
       }
 
       :host([color="tertiary"]) {
-        --track-checked-color: var(--tertiary);
-        --thumb-checked-color: var(--onTertiary);
+        --track-checked-color: var(--bi-sys-color-tertiary);
+        --thumb-checked-color: var(--bi-sys-color-on-tertiary);
       }
 
       :host([color="error"]) {
-        --track-checked-color: var(--error);
-        --thumb-checked-color: var(--onError);
-      }
-
-      :host([color="success"]) {
-        --track-checked-color: var(--success);
-        --thumb-checked-color: var(--onSuccess);
+        --track-checked-color: var(--bi-sys-color-error);
+        --thumb-checked-color: var(--bi-sys-color-on-error);
       }
 
       /* Animation for ripple effect */
