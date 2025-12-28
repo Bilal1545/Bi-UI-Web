@@ -5,7 +5,9 @@ class BiFab extends HTMLElement {
 
     const btn = document.createElement('button');
     const slot = document.createElement('slot');
-    btn.append(slot); 
+    const ripple = document.createElement("bi-ripple");
+    btn.append(ripple);
+    btn.append(slot);
     
     // Gölge rengi değişkeni
     const shadowColor = "rgba(0, 0, 0, 0.2)"; 
@@ -32,77 +34,57 @@ class BiFab extends HTMLElement {
         box-shadow: none !important;
       }
 
-      :host([shape="square"]) button {
-        border-radius: 0.75rem; 
-      }
-
       :host([size="sm"]) button {
-        font-size: 0.75rem;
-        min-height: 2rem;
-        min-width: 2rem;
+        font-size: 1.5rem;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
         border-radius: 0.75rem;
       }
 
-      :host([size="nm"]) button {
-        padding: 0.5rem 1rem;
-        font-size: 1.5rem;
-        min-height: 3.5rem;
-        min-width: 3.5rem;
-        border-radius: 1rem;
-      }
-
-      :host([size="md"]) button {
-        padding: 0.75rem 1.75rem;
-        font-size: 1.75rem;
-        min-height: 5rem;
-        min-width: 5rem;
-        border-radius: 1.5rem;
-      }
-
       :host([size="lg"]) button {
-        padding: 1rem 2rem;
         font-size: 2.25rem;
         min-height: 6rem;
         min-width: 6rem;
         border-radius: 1.75rem;
       }
 
-      :host([color="primary"]) button {
+      button {
+        background: var(--bg, var(--surfaceContainerHigh));
+        --color: var(--primary);
+        color: var(--color);
+        --bg: var(--surfaceContainerHigh);
+        backdrop-filter: blur(0.375rem);
+        box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); 
+        padding: 0; 
+        font-size: 1.75rem;
+        min-height: 3.5rem;
+        min-width: 3.5rem;
+        border-radius: 1rem;
+        display: grid; 
+        place-items: center; 
+        flex-shrink: 0; 
+        --ripple-color: color-mix(
+          in srgb,
+          var(--color) 45%,
+          var(--bg)
+        );
+      }
+
+      :host([variant="primary"]) button {
         --bg: var(--primary);
         --color: var(--onPrimary);
       }
 
-      :host([color="secondary"]) button {
+      :host([variant="secondary"]) button {
         --bg: var(--secondary);
         --color: var(--onSecondary);
       }
 
-      :host([color="tertiary"]) button {
+      :host([variant="tertiary"]) button {
         --bg: var(--tertiary);
-        --color: var(--ontertiary);
+        --color: var(--onTertiary);
       }
 
-      :host([color="secondaryContainer"]) button {
-        --bg: var(--secondaryContainer);
-        --color: var(--onSecondaryContainer);
-      }
-
-      :host([color="tertiaryContainer"]) button {
-        --bg: var(--tertiaryContainer);
-        --color: var(--onTertiaryContainer);
-      }
-
-      button {
-        background: var(--bg, var(--primaryContainer));
-        color: var(--color, var(--onPrimaryContainer));
-        backdrop-filter: blur(0.375rem);
-        box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); 
-        padding: 0; 
-        border-radius: 50%; 
-        display: grid; 
-        place-items: center; 
-        flex-shrink: 0; 
-      }
 
       :host([extended]) button {
         width: auto;
@@ -124,13 +106,12 @@ class BiFab extends HTMLElement {
       }
 
       button:hover {
-        background: color-mix(in srgb, var(--bg, var(--primaryContainer)) 90%, black);
+        background: color-mix(
+          in srgb,
+          var(--color) 25%,
+          var(--bg)
+        );
         box-shadow: 0 0.375rem 0.5rem rgba(0, 0, 0, 0.15);
-      }
-
-      button:active {
-        background: color-mix(in srgb, var(--bg, var(--primaryContainer)) 80%, black);
-        box-shadow: 0 0.125rem 0.1875rem rgba(0, 0, 0, 0.1);
       }
     `;
 

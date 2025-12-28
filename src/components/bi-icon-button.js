@@ -6,6 +6,8 @@ class BiIconButton extends HTMLElement {
     const btn = document.createElement('button');
     const slot = document.createElement('slot');
     btn.append(slot); 
+    const ripple = document.createElement("bi-ripple");
+    btn.append(ripple);
     
     // Gölge rengi değişkeni (Kullanılmıyor, çünkü ikon butonlar genellikle yükseltilmez)
     // const shadowColor = "rgba(0, 0, 0, 0.2)"; 
@@ -31,6 +33,11 @@ class BiIconButton extends HTMLElement {
         place-items: center; 
         color: var(--fg); 
         background: transparent; 
+
+        --color: var(--primary);
+        --onColor: var(--onPrimary);
+        --colorContainer: var(--secondaryContainer);
+        --onColorContainer: var(--onSecondaryContainer);
       }
       
       :host([disabled]) button {
@@ -78,55 +85,156 @@ class BiIconButton extends HTMLElement {
         width: calc(var(--current-width) * 1.25) !important;
       }
 
-      :host([variant="text"]) button { 
-        color: var(--fg); 
+      /* =============== COLORS =============== */
+
+      :host([color="primary"]) button {
+        --colorContainer: var(--primaryContainer);
+        --onColorContainer: var(--onPrimaryContainer); 
+      } 
+      
+      :host([color="secondary"]) button { 
+        --color: var(--secondary); 
+        --onColor: var(--onSecondary); 
+      } 
+      
+      :host([color="tertiary"]) button { 
+        --color: var(--tertiary); 
+        --onColor: var(--onTertiary); 
+        --colorContainer: var(--tertiaryContainer); 
+        --onColorContainer: var(--onTertiaryContainer); 
+      } 
+
+      :host([color="error"]) button { 
+        --color: var(--error); 
+        --onColor: var(--onError); 
+        --colorContainer: var(--errorContainer); 
+        --onColorContainer: var(--onErrorContainer); 
+      }
+      
+      :host([color="success"]) button { 
+        --color: var(--success); 
+        --onColor: var(--onSuccess); 
+        --colorContainer: var(--successContainer); 
+        --onColorContainer: var(--onSuccessContainer);
+      }
+
+      /* ---- TEXT ---- */
+      :host([variant="text"]) button {
+        background: transparent;
+        color: var(--color);
+
+        --ripple-color: color-mix(
+          in srgb,
+          currentColor 100%,
+          transparent
+        );
       }
 
       :host([variant="text"]) button:hover {
-        background: rgba(255,255,255,0.08); 
+        background: color-mix(
+          in srgb,
+          currentColor 10%,
+          transparent 90%
+        );
       }
 
-      :host([variant="text"]) button:active {
-        background: rgba(255,255,255,0.12);
+      /* ---- GLASS ---- */
+      :host([variant="glass"]) button {
+        background: color-mix(
+          in srgb,
+          var(--primary) 8%,
+          transparent 92%
+        );
+        color: var(--color);
+
+        --ripple-color: color-mix(
+          in srgb,
+          var(--primary) 100%,
+          transparent
+        );
       }
 
+      :host([variant="glass"]) button:hover {
+        background: color-mix(
+          in srgb,
+          var(--primary) 12%,
+          transparent 88%
+        );
+      }
+
+      /* ---- OUTLINED ---- */
       :host([variant="outlined"]) button {
         background: transparent;
-        color: var(--fg);
-        border: 0.0625rem solid var(--outline); 
+        color: var(--onBackground);
+        border: 1px solid var(--outline);
+
+        --ripple-color: color-mix(
+          in srgb,
+          var(--primary) 100%,
+          transparent
+        );
       }
 
       :host([variant="outlined"]) button:hover {
-        background: rgba(255,255,255,0.08);
+        background: color-mix(
+          in srgb,
+          var(--primary) 8%,
+          transparent 92%
+        );
       }
 
-      :host([variant="outlined"]) button:active {
-        background: rgba(255,255,255,0.12);
-      }
-
-      :host([variant="tonal"]) button {
-        background: var(--secondaryContainer);
-        color: var(--onSecondaryContainer);
-      }
-      :host([variant="tonal"]) button:hover {
-        background: color-mix(in srgb, var(--secondaryContainer) 90%, black);
-      }
-
-      :host([variant="tonal"]) button:active {
-        background: color-mix(in srgb, var(--secondaryContainer) 80%, black); 
-      }
-
+      /* ---- FILLED ---- */
       :host([variant="filled"]) button {
-        background: var(--primary);
-        color: var(--onPrimary); 
+        background: var(--color);
+        color: var(--onColor);
+
+        --ripple-color: rgba(0,0,0,0.35);
       }
 
       :host([variant="filled"]) button:hover {
-        background: color-mix(in srgb, var(--primary) 90%, black);
+        background: color-mix(
+          in srgb,
+          var(--color) 90%,
+          black
+        );
       }
 
-      :host([variant="filled"]) button:active {
-        background: color-mix(in srgb, var(--primary) 80%, black);
+      /* ---- TONAL ---- */
+      :host([variant="tonal"]) button {
+        background: var(--colorContainer);
+        color: var(--onColorContainer);
+
+        --ripple-color: rgba(255,255,255,0.25);
+      }
+
+      :host([variant="tonal"]) button:hover {
+        background: color-mix(
+          in srgb,
+          var(--colorContainer) 95%,
+          white
+        );
+      }
+
+      /* ---- ELEVATED ---- */
+      :host([variant="elevated"]) button {
+        background: var(--surfaceContainerLow);
+        color: var(--primary);
+
+        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
+        --ripple-color: color-mix(
+          in srgb,
+          var(--primary) 45%,
+          var(--surfaceContainerLow)
+        );
+      }
+
+      :host([variant="elevated"]) button:hover {
+        background: color-mix(
+          in srgb,
+          var(--surfaceContainerLow) 85%,
+          var(--primary)
+        );
       }
     `;
 

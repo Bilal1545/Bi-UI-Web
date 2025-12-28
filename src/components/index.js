@@ -6,3 +6,6 @@ export * from "./bi-split-button.js";
 export * from "./bi-card.js";
 export * from "./bi-switch.js";
 export * from "./bi-text-field.js";
+export * from "./bi-ripple.js";
+export * from "./bi-checkbox.js";
+export * from "./bi-icon.js";

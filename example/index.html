@@ -5,6 +5,8 @@
   <title>Bi UI Test</title>
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="index.css">
+  <meta name="bi-icons-type" content="svg">
+  <meta name="bi-icons-path" content="./icons">
 </head>
 <body>
 
@@ -28,6 +30,8 @@
   <bi-button variant="filled" color="success">Filled -Success</bi-button>
 
   <bi-button disabled variant="filled">disabled</bi-button>
+  
+  <bi-icon>test</bi-icon>
 
   <bi-button size="xs" variant="tonal">Extra Small</bi-button>
   <bi-button size="sm" variant="tonal">Small</bi-button>
@@ -35,9 +39,11 @@
   <bi-button size="lg" variant="tonal">Large</bi-button>
   <bi-button size="xl" variant="tonal">Extra Large</bi-button>
 
-  <bi-icon-button width="wide" variant="filled">A</bi-icon-button>
-  <bi-icon-button variant="filled">B</bi-icon-button>
-  <bi-icon-button width="narrow" variant="filled">C</bi-icon-button>
+  <bi-icon-button width="wide" variant="text">A</bi-icon-button>
+  <bi-icon-button variant="glass">B</bi-icon-button>
+  <bi-icon-button width="narrow" variant="outlined">C</bi-icon-button>
+  <bi-icon-button variant="tonal">A</bi-icon-button>
+  <bi-icon-button width="wide"variant="filled">B</bi-icon-button>
 
   <bi-split-button size="xs" variant="glass">Split Button</bi-split-button>
   <bi-split-button size="sm" variant="outlined">Split Button</bi-split-button>
@@ -46,13 +52,11 @@
   <bi-split-button size="xl" variant="filled">Split Button</bi-split-button>
   <bi-split-button size="xl" variant="filled" color="secondary">Split Button</bi-split-button>
 
-  <bi-fab shape="square" size="sm">A</bi-fab>
-  <bi-fab shape="square" color="primary" size="nm">B</bi-fab>
-  <bi-fab shape="square" color="secondaryContainer" size="md">C</bi-fab>
-  <bi-fab shape="square" color="secondary" size="lg">D</bi-fab>
-  <bi-fab shape="square" color="tertiaryContainer" size="md">E</bi-fab>
-  <bi-fab shape="square" color="tertiary" size="nm">F</bi-fab>
-  <bi-fab shape="square" color="tertiary" size="sm">G</bi-fab>
+  <bi-fab variant="primary" size="sm">A</bi-fab>
+  <bi-fab variant="secondary">C</bi-fab>
+  <bi-fab variant="tertiary" size="lg">D</bi-fab>
+
+  <bi-fab size="lg" extended>Extended</bi-fab>
 
   <bi-slider min="0" max="100" value="50" size="xs"></bi-slider>
   <bi-slider min="0" max="100" value="75" size="sm"></bi-slider>
@@ -253,6 +257,13 @@
 
   <bi-text-field label="Username" variant="outlined"></bi-text-field>
   <bi-text-field label="Password" variant="filled"></bi-text-field>
+
+  <bi-progress value="40" max="100"></bi-progress>
+  <bi-progress value="70" size="lg"></bi-progress>
+  <br>
+  <bi-checkbox value="70" size="lg"></bi-checkbox> <span>Checkbox</span><br>
+  <bi-checkbox value="70" size="lg" checked></bi-checkbox> <span>Checkbox - Checked</span><br>
+  <bi-checkbox value="70" size="lg" indeterminate></bi-checkbox> <span>Checkbox - indeterminate</span>
 
   <script type="module" src="../src/main.js"></script>
 </body>

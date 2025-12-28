@@ -21,6 +21,11 @@ class BiSplitButton extends HTMLElement {
     iconContainer.classList.add('dropdown-icon');
     iconContainer.innerHTML = '&#9660;'; // Unicode Aşağı Üçgen
     btnDropdown.append(iconContainer);
+
+    const ripple = document.createElement("bi-ripple");
+    const ripple2 = document.createElement("bi-ripple");
+    btnDropdown.append(ripple);
+    btnMain.append(ripple2); 
     
     // Olay Dinleyici GÜNCELLENDİ
     btnDropdown.addEventListener('click', (e) => {
@@ -86,16 +91,16 @@ class BiSplitButton extends HTMLElement {
       }
 
       .btn-main {
-        border-top-left-radius: 1.25rem;
-        border-bottom-left-radius: 1.25rem;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
         border-top-right-radius: .25rem;
         border-bottom-right-radius: .25rem;
         margin-right: .0625rem;
       }
 
       .btn-dropdown {
-        border-top-right-radius: 1.25rem;
-        border-bottom-right-radius: 1.25rem;
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 2rem;
         border-top-left-radius: .25rem;
         border-bottom-left-radius: .25rem; 
         margin-left: .0625rem;
@@ -156,31 +161,43 @@ class BiSplitButton extends HTMLElement {
       }
 
       :host([variant="glass"]) button {
-        background: rgba(255,255,255,0.08);
+        background: color-mix(
+          in srgb,
+          var(--primary) 8%,
+          transparent 92%
+        );
         box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.025);
         color: var(--color);
+        --ripple-color: color-mix(
+          in srgb,
+          var(--primary) 100%,
+          transparent
+        );
       }
 
       :host([variant="glass"]) button:hover {
-        background: rgba(255,255,255,0.12);
+        background: color-mix(
+          in srgb,
+          var(--primary) 12%,
+          transparent 88%
+        );
         box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.075);
       }
 
-      :host([variant="glass"]) button:active {
-        background: rgba(255,255,255,0.16);
-        box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.025);
-      }
-
       :host([variant="glass"][is-open]) .btn-dropdown {
-        background: rgba(255,255,255,0.12);
+        background: color-mix(
+          in srgb,
+          var(--primary) 12%,
+          transparent 88%
+        );
       }
 
       :host([variant="glass"][is-open]) .btn-dropdown:hover {
-        background: rgba(255,255,255,0.16);
-      }
-
-      :host([variant="glass"][is-open]) .btn-dropdown:active {
-        background: rgba(255,255,255,0.20);
+        background: color-mix(
+          in srgb,
+          var(--primary) 16%,
+          transparent 84%
+        );
       }
       
       :host([variant="outlined"]) .split-container {
@@ -192,28 +209,36 @@ class BiSplitButton extends HTMLElement {
         background: transparent;
         color: var(--onBackground);
         border: 0.0625rem solid var(--outline);
+        --ripple-color: color-mix(
+          in srgb,
+          var(--primary) 100%,
+          transparent
+        );
       }
 
       :host([variant="outlined"]) .btn-main:hover,
       :host([variant="outlined"]) .btn-dropdown:hover {
-        background: rgba(255,255,255,0.08);
-      }
-
-      :host([variant="outlined"]) .btn-main:active,
-      :host([variant="outlined"]) .btn-dropdown:active {
-        background: rgba(255,255,255,0.12);
+        background: color-mix(
+          in srgb,
+          var(--primary) 8%,
+          transparent 92%
+        );
       }
 
       :host([variant="outlined"][is-open]) .btn-dropdown {
-        background: rgba(255,255,255,0.12);
+        background: color-mix(
+          in srgb,
+          var(--primary) 12%,
+          transparent 88%
+        );
       }
 
       :host([variant="outlined"][is-open]) .btn-dropdown:hover {
-        background: rgba(255,255,255,0.16);
-      }
-
-      :host([variant="outlined"][is-open]) .btn-dropdown:active {
-        background: rgba(255,255,255,0.20);
+        background: color-mix(
+          in srgb,
+          var(--primary) 16%,
+          transparent 84%
+        );
       }
 
       :host([variant="tonal"]) .btn-main,
@@ -221,16 +246,12 @@ class BiSplitButton extends HTMLElement {
         background: var(--colorContainer);
         color: var(--onColorContainer);
         box-shadow: none;
+        --ripple-color: rgba(255,255,255,0.25);
       }
 
       :host([variant="tonal"]) .btn-main:hover,
       :host([variant="tonal"]) .btn-dropdown:hover {
-        background: color-mix(in srgb, var(--colorContainer) 90%, black);
-      }
-
-      :host([variant="tonal"]) .btn-main:active,
-      :host([variant="tonal"]) .btn-dropdown:active {
-        background: color-mix(in srgb, var(--colorContainer) 80%, black);
+        background: color-mix(in srgb, var(--colorContainer) 95%, white);
       }
 
       :host([variant="tonal"][is-open]) .btn-dropdown {
@@ -238,42 +259,44 @@ class BiSplitButton extends HTMLElement {
       }
 
       :host([variant="tonal"][is-open]) .btn-dropdown:hover {
-        background: var(--colorContainer);
-      }
-
-      :host([variant="tonal"][is-open]) .btn-dropdown:active {
-        background: color-mix(in srgb, var(--colorContainer) 90%, black);
-      }
-
-      :host([variant="elevated"]) .split-container {
-        box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1); 
+        background: color-mix(in srgb, var(--colorContainer) 90%, white);
       }
 
       :host([variant="elevated"]) .btn-main,
       :host([variant="elevated"]) .btn-dropdown {
         background: var(--surfaceContainerLow); 
         color: var(--primary);
+        box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1); 
+        --ripple-color: color-mix(
+          in srgb,
+          var(--primary) 45%,
+          var(--surfaceContainerLow)
+        );
       }
 
       :host([variant="elevated"]) .btn-main:hover,
       :host([variant="elevated"]) .btn-dropdown:hover {
-        background: color-mix(in srgb, var(--surfaceContainerLow) 90%, black);
-      }
-
-      :host([variant="elevated"]) .btn-main {
-        border-right: 1px solid color-mix(in srgb, var(--surfaceContainerLow) 80%, black);
+        background: color-mix(
+          in srgb,
+          var(--surfaceContainerLow) 85%,
+          var(--primary)
+        );
       }
 
       :host([is-open][variant="elevated"]) .btn-dropdown {
-        background: color-mix(in srgb, var(--surfaceContainerLow) 95%, white);
+        background: color-mix(
+          in srgb,
+          var(--surfaceContainerLow) 85%,
+          var(--primary)
+        );
       }
 
       :host([is-open][variant="elevated"]) .btn-dropdown:hover {
-        background: var(--surfaceContainerLow);
-      }
-      
-      :host([is-open][variant="elevated"]) .btn-dropdown:active {
-        background: color-mix(in srgb, var(--surfaceContainerLow) 90%, black);
+        background: color-mix(
+          in srgb,
+          var(--surfaceContainerLow) 80%,
+          var(--primary)
+        );
       }
       
       :host([variant="filled"]) .btn-main,
@@ -281,6 +304,7 @@ class BiSplitButton extends HTMLElement {
         background: var(--color);
         color: var(--onColor);
         box-shadow: none;
+        --ripple-color: rgba(0,0,0,0.35);
       }
 
       :host([variant="filled"]) .btn-main:hover,
@@ -294,10 +318,6 @@ class BiSplitButton extends HTMLElement {
 
       :host([is-open][variant="filled"]) .btn-dropdown:hover {
         background: color-mix(in srgb, var(--color) 80%, black);
-      }
-
-      :host([is-open][variant="filled"]) .btn-dropdown:active {
-        background: color-mix(in srgb, var(--color) 70%, black);
       }
 
       :host([disabled]) .btn-main, 

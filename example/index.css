@@ -2,6 +2,7 @@ body {
   background: var(--background);
   font-family: sans-serif;
   padding: 2rem;
+  color: var(--onBackground);
 }
 
 bi-button {

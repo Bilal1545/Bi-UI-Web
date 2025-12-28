@@ -128,8 +128,8 @@ class BiSlider extends HTMLElement {
                 left: calc(var(--thumb-width) / 2);
                 height: var(--track-height);
                 background: var(--track-color);
-                border-top-left-radius: 9999px;
-                border-bottom-left-radius: 9999px;
+                border-top-left-radius: 2rem;
+                border-bottom-left-radius: 2rem;
                 border-top-right-radius: .125rem;
                 border-bottom-right-radius: .125rem;
                 transform: translateY(-50%);
@@ -148,8 +148,8 @@ class BiSlider extends HTMLElement {
                 background: var(--inactive-color);
                 border-top-left-radius: .125rem;
                 border-bottom-left-radius: .125rem;
-                border-top-right-radius: 9999px;
-                border-bottom-right-radius: 9999px;
+                border-top-right-radius: 2rem;
+                border-bottom-right-radius: 2rem;
                 transform: translateY(-50%);
                 width: calc(100% - var(--slider-progress, 50%) - var(--track-gap));
                 pointer-events: none;
