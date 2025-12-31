@@ -1,110 +1,89 @@
 class BiIcon extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: inherit;
+          color: inherit;
+          line-height: 1;
+        }
+
+        svg {
+          width: 1em;
+          height: 1em;
+          fill: currentColor;
+        }
+
+        i {
+          font-style: normal;
+          line-height: 1;
+        }
+      </style>
+      <span id="icon"></span>
+    `;
   }
 
   connectedCallback() {
-    this.render();
-  }
-
-  getMeta(name, fallback = "") {
-    return (
-      document.querySelector(`meta[name="${name}"]`)?.content ??
-      fallback
-    );
-  }
-
-  async render() {
-    this.shadowRoot.innerHTML = "";
-
-    // 1️⃣ INLINE SVG VAR MI?
-    const inlineSvg = this.querySelector("svg");
-    if (inlineSvg) {
-      const svg = inlineSvg.cloneNode(true);
-      this.applySVGBase(svg);
-      this.applyBaseStyle();
-      this.shadowRoot.append(svg);
+    // Eğer kullanıcı kendi SVG'sini verdiyse → kullan
+    const svg = this.querySelector('svg');
+    if (svg) {
+      this.shadowRoot.getElementById('icon').appendChild(svg);
       return;
     }
 
-    // 2️⃣ DIŞARIDAN YÜKLE
-    const iconName = this.textContent.trim();
-    if (!iconName) return;
+    this.loadIcon();
+  }
 
-    const type = this.getMeta("bi-icon-type", "svg");
+  getMeta(name) {
+    return document
+      .querySelector(`meta[name="${name}"]`)
+      ?.getAttribute('content');
+  }
 
-    if (type === "svg") {
-      await this.renderSVG(iconName);
-    } else {
-      this.renderFont(iconName);
+  async loadIcon() {
+    const name = this.textContent.trim();
+    if (!name) return;
+
+    const type = this.getMeta('bi-icons-type') || 'svg';
+    const path = this.getMeta('bi-icons-path') || '';
+
+    this.textContent = '';
+    const container = this.shadowRoot.getElementById('icon');
+    container.innerHTML = '';
+
+    if (type === 'font') {
+      const i = document.createElement('i');
+      i.className = name;
+      container.appendChild(i);
+      return;
     }
-  }
 
-  async renderSVG(name) {
-    const path = this.getMeta("bi-icon-path", "./icons");
-    const ext = this.getMeta("bi-icon-ext", "svg");
+    if (type === 'svg') {
+      try {
+        const res = await fetch(`${path}/${name}.svg`);
+        if (!res.ok) return;
 
-    const base = new URL(path, document.baseURI).href;
-    const url = `${base.replace(/\/$/, "")}/${name}.${ext}`;
+        const text = await res.text();
+        const tpl = document.createElement('template');
+        tpl.innerHTML = text;
 
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("fetch fail");
+        const svg = tpl.content.querySelector('svg');
+        if (!svg) return;
 
-      const text = await res.text();
-      const tpl = document.createElement("template");
-      tpl.innerHTML = text.trim();
+        svg.removeAttribute('width');
+        svg.removeAttribute('height');
+        svg.setAttribute('fill', 'currentColor');
 
-      const svg = tpl.content.querySelector("svg");
-      if (!svg) throw new Error("svg yok");
-
-      this.applySVGBase(svg);
-      this.applyBaseStyle();
-      this.shadowRoot.append(svg);
-    } catch {
-      console.warn("[bi-icon] SVG yüklenemedi:", name);
+        container.appendChild(svg);
+      } catch (_) {}
     }
-  }
-
-  renderFont(name) {
-    const fontClass = this.getMeta("bi-icon-class", "");
-
-    const i = document.createElement("i");
-    i.className = fontClass;
-    i.textContent = name;
-
-    this.applyBaseStyle();
-    this.shadowRoot.append(i);
-  }
-
-  applySVGBase(svg) {
-    svg.setAttribute("part", "svg");
-    svg.style.width = "1em";
-    svg.style.height = "1em";
-    svg.style.fill = "currentColor";
-    svg.style.display = "block";
-  }
-
-  applyBaseStyle() {
-    const style = document.createElement("style");
-    style.textContent = `
-      :host {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: inherit;
-        color: inherit;
-        line-height: 1;
-      }
-
-      i {
-        font-size: inherit;
-        line-height: 1;
-      }
-    `;
-    this.shadowRoot.append(style);
   }
 }
 
-customElements.define("bi-icon", BiIcon);
+customElements.define('bi-icon', BiIcon);

@@ -40,14 +40,12 @@ class BiSplitButton extends HTMLElement {
         }
 
         // 2. Custom Event'ı tetikle
-        this.dispatchEvent(new CustomEvent('dropdown-clicked', { 
-            bubbles: true, 
-            composed: true,
-            detail: { 
-                source: 'dropdown',
-                isOpen: !isOpen // Yeni durumu gönder
-            }
-        }));
+        this.dispatchEvent(
+          new MouseEvent('dropdown-click', {
+            bubbles: true,
+            composed: true
+          })
+        );
     });
 
     container.append(btnMain, btnDropdown); 
