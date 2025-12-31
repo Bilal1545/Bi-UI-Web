@@ -17,7 +17,6 @@ class BiIcon extends HTMLElement {
         svg {
           width: 1em;
           height: 1em;
-          fill: currentColor;
         }
 
         i {
@@ -78,7 +77,6 @@ class BiIcon extends HTMLElement {
 
         svg.removeAttribute('width');
         svg.removeAttribute('height');
-        svg.setAttribute('fill', 'currentColor');
 
         container.appendChild(svg);
       } catch (_) {}
