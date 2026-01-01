@@ -77,7 +77,7 @@ Bi-UI uses CSS variables compatible with Material 3 color tokens. If you don't s
 
 For example check [this](example/tokens.css).
 
-If you want to create one. See [this]([example/tokens.css](https://bilal.affedilmez.com/Bi-UI/index.htm#generator)).
+If you want to create one. See [this](https://bilal.affedilmez.com/Bi-UI/index.htm#generator).
 
 > For more information, check out the [wiki](https://bilal.affedilmez.com/Bi-UI/index.htm#docs).
 
