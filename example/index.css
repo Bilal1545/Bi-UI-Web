@@ -1,8 +1,8 @@
 body {
-  background: var(--background);
+  background: var(--bi-sys-color-background);
   font-family: sans-serif;
   padding: 2rem;
-  color: var(--onBackground);
+  color: var(--bi-sys-color-on-background);
 }
 
 bi-button {
