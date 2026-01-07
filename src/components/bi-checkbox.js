@@ -115,7 +115,7 @@ class BiCheckbox extends HTMLElement {
         width: 0.875rem;
         height: 0.875rem;
         display: none;
-        color: var(--onPrimary, white);
+        color: var(--bi-sys-color-on-primary);
       }
 
       .icon svg {
