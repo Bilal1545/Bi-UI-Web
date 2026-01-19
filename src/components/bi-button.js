@@ -139,6 +139,11 @@ class BiButton extends HTMLElement {
         background: transparent;
         color: var(--bi-sys-color-on-background);
         border: 1px solid var(--bi-sys-color-outline);
+        --ripple-color: color-mix(
+          in srgb,
+          var(--bi-sys-color-primary) 100%,
+          transparent
+        );
       }
 
       :host([variant="outlined"]) :is(button,a):hover {

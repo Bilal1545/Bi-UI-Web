@@ -26,6 +26,7 @@ class BiTextField extends HTMLElement {
   connectedCallback() {
     const input = this.shadowRoot.querySelector('input');
     const label = this.shadowRoot.querySelector('.label');
+    label.classList.add('bi-typescale-label');
 
     input.addEventListener('input', e => {
       this._value = e.target.value;
@@ -108,13 +109,13 @@ class BiTextField extends HTMLElement {
         /* ===== FILLED ===== */
 
         :host([variant="filled"]) .field {
-          background: var(--bi-sys-color-surface-container-highest);
+          background: var(--bi-sys-color-surface);
           border-bottom: .0625rem solid var(--bi-sys-color-on-surface-variant);
           border-radius: .25rem .25rem 0 0;
         }
 
         :host([variant="filled"]) .field:focus-within {
-          border-bottom: 2px solid var(--bi-sys-color-primary);
+          border-bottom: 0.125rem solid var(--bi-sys-color-primary);
         }
 
         /* ===== OUTLINED ===== */
@@ -129,7 +130,6 @@ class BiTextField extends HTMLElement {
         }
 
         :host([variant="outlined"]) .label {
-          background: var(--bi-sys-color-surface);
           padding: 0 4px;
         }
 

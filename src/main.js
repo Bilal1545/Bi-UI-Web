@@ -15,4 +15,12 @@ function applyThemeClass() {
 
 applyThemeClass();
 
+fetch("src/typography.css")
+  .then(r => r.text())
+  .then(css => {
+    const style = document.createElement("style");
+    style.textContent = css;
+    document.head.appendChild(style);
+  });
+
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyThemeClass);

@@ -1,6 +1,5 @@
 body {
   background: var(--bi-sys-color-background);
-  font-family: sans-serif;
   padding: 2rem;
   color: var(--bi-sys-color-on-background);
 }

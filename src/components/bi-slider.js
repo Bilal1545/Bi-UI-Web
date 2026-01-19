@@ -225,57 +225,6 @@ class BiSlider extends HTMLElement {
                 opacity: var(--state-layer-pressed-opacity);
             }
 
-            /* ================================================= */
-            /* --- DİKEY MOD (orientation="vertical") --- */
-            /* ================================================= */
-            
-            :host([vertical]) {
-                height: 200px; 
-                width: var(--thumb-height);
-                padding: 0 1rem;
-            }
-
-            :host([vertical]) .slider-container {
-                height: 100%;
-                width: var(--thumb-height);
-                flex-direction: column; 
-            }
-
-            :host([vertical]) input[type="range"] {
-                transform-origin: top left; 
-                transform: rotate(-90deg);
-                width: 100%; 
-                height: var(--thumb-height);
-                top: 100%; 
-                left: 0; 
-            }
-
-            :host([vertical]) .slider-container::before {
-                top: auto;
-                bottom: 0;
-                left: 50%;
-                width: var(--track-height);
-                height: calc(var(--slider-progress, 50%) - var(--track-gap));
-                transform: translateX(-50%);
-                border-top-left-radius: .125rem;
-                border-bottom-left-radius: 9999px;
-                border-top-right-radius: .125rem;
-                border-bottom-right-radius: 9999px;
-            }
-
-            :host([vertical]) .slider-container::after {
-                top: 0;
-                bottom: auto;
-                left: 50%;
-                width: var(--track-height);
-                height: calc(100% - var(--slider-progress, 50%) - var(--track-gap));
-                transform: translateX(-50%);
-                border-bottom-left-radius: .125rem;
-                border-top-left-radius: 9999px;
-                border-bottom-right-radius: .125rem;
-                border-top-right-radius: 9999px;
-            }
-
             /* --- DEĞER GÖSTERGESİ (Thumb Label) --- */
             .thumb-label {
                 position: absolute;
@@ -298,13 +247,6 @@ class BiSlider extends HTMLElement {
                 left: var(--thumb-offset, 50%);
                 top: -8px;
                 transform: translateX(-50%) translateY(-100%);
-            }
-
-            /* Dikey Label Konumu */
-            :host([orientation="vertical"]) .thumb-label {
-                top: var(--thumb-position-y, 50%);
-                left: calc(var(--thumb-height) + 8px);
-                transform: translateY(-50%);
             }
 
             input[type="range"]:active ~ .thumb-label,
@@ -368,8 +310,7 @@ class BiSlider extends HTMLElement {
     updateSliderState(value) {
         const percentage = ((value - this.min) / (this.max - this.min)) * 100;
         
-        const isVertical = this.getAttribute('orientation') === 'vertical';
-        const hostLength = isVertical ? this.offsetHeight : this.offsetWidth;
+        const hostLength = this.offsetWidth;
         
         this.style.setProperty('--host-length', `${hostLength}px`);
 
@@ -378,8 +319,7 @@ class BiSlider extends HTMLElement {
         const thumbOffset = percentage; 
         this.style.setProperty('--thumb-offset', `${thumbOffset}%`);
         
-        const verticalPercentage = 100 - percentage; // Dikeyde alttan başlar
-        this.style.setProperty('--thumb-position-y', `${verticalPercentage}%`);
+        this.style.setProperty('--thumb-position-y', `${percentage}%`);
 
         this.thumbLabel.textContent = value.toFixed(this.step > 0 ? 0 : 1);
     }
