@@ -34,8 +34,12 @@ class BiButton extends HTMLElement {
 
     const slot = document.createElement("slot");
     const ripple = document.createElement("bi-ripple");
-
-    el.append(slot, ripple);
+    if (this.getAttribute("variant") === "outlined" || this.getAttribute("variant") === "text") {
+      el.append(slot, ripple);
+    } else {
+      const elevation = document.createElement("bi-elevation");
+      el.append(slot, ripple, elevation);
+    }
 
     const style = document.createElement("style");
     style.textContent = `
@@ -46,15 +50,11 @@ class BiButton extends HTMLElement {
       button,
       a {
         position: relative;
-        overflow: hidden;
-
         padding: 0 1rem;
         min-height: 2.5rem;
 
         font-size: 0.875rem;
-        font-family: sans-serif;
 
-        border-radius: 1.25rem;
         border: none;
         cursor: pointer;
 
@@ -118,6 +118,8 @@ class BiButton extends HTMLElement {
       :host([variant="text"]) :is(button,a) {
         background: transparent;
         color: var(--color);
+        border-radius: var(--bi-text-button-container-shape);
+        font-family: var(--bi-text-button-label-text-font);
       }
 
       :host([variant="text"]) :is(button,a):hover {
@@ -128,10 +130,18 @@ class BiButton extends HTMLElement {
       :host([variant="glass"]) :is(button,a) {
         background: color-mix(in srgb, var(--bi-sys-color-primary) 8%, transparent);
         color: var(--color);
+        border-radius: var(--bi-glass-button-container-shape);
+        font-family: var(--bi-glass-button-label-text-font);
+        --bi-elevation-shadow-level: 1;
       }
 
       :host([variant="glass"]) :is(button,a):hover {
         background: color-mix(in srgb, var(--bi-sys-color-primary) 12%, transparent);
+        --bi-elevation-shadow-level: 2;
+      }
+
+      :host([variant="glass"]) :is(button,a):active {
+        --bi-elevation-shadow-level: 0 !important;
       }
 
       /* ---- OUTLINED ---- */
@@ -139,11 +149,9 @@ class BiButton extends HTMLElement {
         background: transparent;
         color: var(--bi-sys-color-on-background);
         border: 1px solid var(--bi-sys-color-outline);
-        --ripple-color: color-mix(
-          in srgb,
-          var(--bi-sys-color-primary) 100%,
-          transparent
-        );
+        border-radius: var(--bi-outlined-button-container-shape);
+        font-family: var(--bi-outlined-button-label-text-font);
+        --ripple-color: var(--bi-sys-color-primary)
       }
 
       :host([variant="outlined"]) :is(button,a):hover {
@@ -154,36 +162,53 @@ class BiButton extends HTMLElement {
       :host([variant="filled"]) :is(button,a) {
         background: var(--color);
         color: var(--onColor);
+        border-radius: var(--bi-filled-button-container-shape);
+        font-family: var(--bi-filled-button-label-text-font);
         --ripple-color: rgba(0,0,0,0.35);
       }
 
       :host([variant="filled"]) :is(button,a):hover {
         background: color-mix(in srgb, var(--color) 90%, black);
+        --bi-elevation-shadow-level: 1;
+      }
+
+      :host([variant="filled"]) :is(button,a):active {
+        --bi-elevation-shadow-level: 0 !important;
       }
 
       /* ---- TONAL ---- */
       :host([variant="tonal"]) :is(button,a) {
         background: var(--colorContainer);
         color: var(--onColorContainer);
+        border-radius: var(--bi-tonal-button-container-shape);
+        font-family: var(--bi-tonal-button-label-text-font);
       }
 
       :host([variant="tonal"]) :is(button,a):hover {
         background: color-mix(in srgb, var(--colorContainer) 95%, white);
+        --bi-elevation-shadow-level: 1;
+      }
+
+      :host([variant="tonal"]) :is(button,a):active {
+        --bi-elevation-shadow-level: 0 !important;
       }
 
       /* ---- ELEVATED ---- */
       :host([variant="elevated"]) :is(button,a) {
         background: var(--bi-sys-color-surface-container-low);
         color: var(--bi-sys-color-primary);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        border-radius: var(--bi-elevated-button-container-shape);
+        font-family: var(--bi-elevated-button-label-text-font);
+        --bi-elevation-shadow-level: 1;
       }
 
       :host([variant="elevated"]) :is(button,a):hover {
         background: color-mix(in srgb, var(--bi-sys-color-surface-container-low) 85%, var(--bi-sys-color-primary));
+        --bi-elevation-shadow-level: 2;
       }
 
-      :host([shape="square"]) button {
-        border-radius: 0.75rem; 
+      :host([variant="elevated"]) :is(button,a):active {
+        --bi-elevation-shadow-level: 1;
       }
 
       :host([size="xs"]) button {

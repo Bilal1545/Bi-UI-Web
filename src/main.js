@@ -84,6 +84,21 @@ style.textContent = `@import url('https://fonts.googleapis.com/css2?family=Robot
     --bi-sys-typescale-label-large-weight: 500;
     --bi-sys-typescale-label-medium-weight: 500;
     --bi-sys-typescale-label-small-weight: 500;
+
+    --bi-sys-button-container-shape: 1.25rem;
+    --bi-elevated-button-container-shape: var(--bi-sys-button-container-shape);
+    --bi-filled-button-container-shape: var(--bi-sys-button-container-shape);
+    --bi-text-button-container-shape: var(--bi-sys-button-container-shape);
+    --bi-glass-button-container-shape: var(--bi-sys-button-container-shape);
+    --bi-outlined-button-container-shape: var(--bi-sys-button-container-shape);
+    --bi-tonal-button-container-shape: var(--bi-sys-button-container-shape);
+    --bi-sys-button-label-text-font: var(--bi-ref-typeface-plain);
+    --bi-elevated-button-label-text-font: var(--bi-sys-button-label-text-font);
+    --bi-filled-button-label-text-font: var(--bi-sys-button-label-text-font);
+    --bi-text-button-label-text-font: var(--bi-sys-button-label-text-font);
+    --bi-glass-button-label-text-font: var(--bi-sys-button-label-text-font);
+    --bi-outlined-button-label-text-font: var(--bi-sys-button-label-text-font);
+    --bi-tonal-button-label-text-font: var(--bi-sys-button-label-text-font);
 }
 
 /* Global Font Settings */

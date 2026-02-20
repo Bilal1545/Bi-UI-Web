@@ -1,121 +1,428 @@
-const SHAPES = {
-  cookie: {
-    3: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.433) calc(var(--s)*0.433) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.219) calc(50% + var(--s)*0.12) var(--g),calc(50% + var(--s)*-0.214) calc(50% + var(--s)*0.13) var(--g),calc(50% + var(--s)*-0.005) calc(50% + var(--s)*-0.25) var(--g),radial-gradient(calc(var(--s)*0.331),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.01) calc(50% + var(--s)*0.5) var(--g),calc(50% + var(--s)*-0.438) calc(50% + var(--s)*-0.241) var(--g),calc(50% + var(--s)*0.428) calc(50% + var(--s)*-0.259) var(--g);
-    `,
-    4: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.388) calc(var(--s)*0.388) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.197) calc(50% + var(--s)*0.191) var(--g), calc(50% + var(--s)*-0.191) calc(50% + var(--s)*0.197) var(--g), calc(50% + var(--s)*-0.197) calc(50% + var(--s)*-0.191) var(--g), calc(50% + var(--s)*0.191) calc(50% + var(--s)*-0.197) var(--g), radial-gradient(calc(var(--s)*0.375),#000 99%,#0000 101%) subtract, calc(50% + var(--s)*0.008) calc(50% + var(--s)*0.53) var(--g), calc(50% + var(--s)*-0.53) calc(50% + var(--s)*0.008) var(--g), calc(50% + var(--s)*-0.008) calc(50% + var(--s)*-0.53) var(--g), calc(50% + var(--s)*0.53) calc(50% + var(--s)*-0.008) var(--g);
-    `,
-    5: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.347) calc(var(--s)*0.347) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.177) calc(50% + var(--s)*0.237) var(--g),calc(50% + var(--s)*-0.171) calc(50% + var(--s)*0.241) var(--g),calc(50% + var(--s)*-0.282) calc(50% + var(--s)*-0.088) var(--g),calc(50% + var(--s)*-0.004) calc(50% + var(--s)*-0.295) var(--g),calc(50% + var(--s)*0.28) calc(50% + var(--s)*-0.095) var(--g),radial-gradient(calc(var(--s)*0.399),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.007) calc(50% + var(--s)*0.54) var(--g),calc(50% + var(--s)*-0.511) calc(50% + var(--s)*0.173) var(--g),calc(50% + var(--s)*-0.323) calc(50% + var(--s)*-0.433) var(--g),calc(50% + var(--s)*0.312) calc(50% + var(--s)*-0.441) var(--g),calc(50% + var(--s)*0.516) calc(50% + var(--s)*0.16) var(--g);
-    `,
-    6: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.313) calc(var(--s)*0.313) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.273) calc(50% + var(--s)*0.154) var(--g), calc(50% + var(--s)*0.003) calc(50% + var(--s)*0.313) var(--g), calc(50% + var(--s)*-0.27) calc(50% + var(--s)*0.159) var(--g), calc(50% + var(--s)*-0.273) calc(50% + var(--s)*-0.154) var(--g), calc(50% + var(--s)*-0.003) calc(50% + var(--s)*-0.313) var(--g), calc(50% + var(--s)*0.27) calc(50% + var(--s)*-0.159) var(--g), radial-gradient(calc(var(--s)*0.414),#000 99%,#0000 101%) subtract, calc(50% + var(--s)*0.276) calc(50% + var(--s)*0.467) var(--g), calc(50% + var(--s)*-0.266) calc(50% + var(--s)*0.473) var(--g), calc(50% + var(--s)*-0.543) calc(50% + var(--s)*0.006) var(--g), calc(50% + var(--s)*-0.276) calc(50% + var(--s)*-0.467) var(--g), calc(50% + var(--s)*0.266) calc(50% + var(--s)*-0.473) var(--g), calc(50% + var(--s)*0.543) calc(50% + var(--s)*-0.006) var(--g);
-    `,
-    7: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.285) calc(var(--s)*0.285) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.321) calc(50% + var(--s)*0.07) var(--g),calc(50% + var(--s)*0.145) calc(50% + var(--s)*0.294) var(--g),calc(50% + var(--s)*-0.14) calc(50% + var(--s)*0.297) var(--g),calc(50% + var(--s)*-0.319) calc(50% + var(--s)*0.076) var(--g),calc(50% + var(--s)*-0.258) calc(50% + var(--s)*-0.202) var(--g),calc(50% + var(--s)*-0.003) calc(50% + var(--s)*-0.328) var(--g),calc(50% + var(--s)*0.255) calc(50% + var(--s)*-0.207) var(--g),radial-gradient(calc(var(--s)*0.425),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.427) calc(50% + var(--s)*0.334) var(--g),calc(50% + var(--s)*0.005) calc(50% + var(--s)*0.542) var(--g),calc(50% + var(--s)*-0.421) calc(50% + var(--s)*0.342) var(--g),calc(50% + var(--s)*-0.53) calc(50% + var(--s)*-0.116) var(--g),calc(50% + var(--s)*-0.24) calc(50% + var(--s)*-0.487) var(--g),calc(50% + var(--s)*0.231) calc(50% + var(--s)*-0.491) var(--g),calc(50% + var(--s)*0.528) calc(50% + var(--s)*-0.125) var(--g);
-    `,
-    8: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.261) calc(var(--s)*0.261) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.245) calc(50% + var(--s)*0.237) var(--g),calc(50% + var(--s)*0.005) calc(50% + var(--s)*0.341) var(--g),calc(50% + var(--s)*-0.237) calc(50% + var(--s)*0.245) var(--g),calc(50% + var(--s)*-0.341) calc(50% + var(--s)*0.005) var(--g),calc(50% + var(--s)*-0.245) calc(50% + var(--s)*-0.237) var(--g),calc(50% + var(--s)*-0.005) calc(50% + var(--s)*-0.341) var(--g),calc(50% + var(--s)*0.237) calc(50% + var(--s)*-0.245) var(--g),calc(50% + var(--s)*0.341) calc(50% + var(--s)*-0.005) var(--g),radial-gradient(calc(var(--s)*0.433),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.215) calc(50% + var(--s)*0.497) var(--g),calc(50% + var(--s)*-0.199) calc(50% + var(--s)*0.503) var(--g),calc(50% + var(--s)*-0.497) calc(50% + var(--s)*0.215) var(--g),calc(50% + var(--s)*-0.503) calc(50% + var(--s)*-0.199) var(--g),calc(50% + var(--s)*-0.215) calc(50% + var(--s)*-0.497) var(--g),calc(50% + var(--s)*0.199) calc(50% + var(--s)*-0.503) var(--g),calc(50% + var(--s)*0.497) calc(50% + var(--s)*-0.215) var(--g),calc(50% + var(--s)*0.503) calc(50% + var(--s)*0.199) var(--g);
-    `,
-    9: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.241) calc(var(--s)*0.241) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.306) calc(50% + var(--s)*0.174) var(--g),calc(50% + var(--s)*0.123) calc(50% + var(--s)*0.33) var(--g),calc(50% + var(--s)*-0.118) calc(50% + var(--s)*0.332) var(--g),calc(50% + var(--s)*-0.304) calc(50% + var(--s)*0.178) var(--g),calc(50% + var(--s)*-0.347) calc(50% + var(--s)*-0.059) var(--g),calc(50% + var(--s)*-0.228) calc(50% + var(--s)*-0.268) var(--g),calc(50% + var(--s)*-0.002) calc(50% + var(--s)*-0.352) var(--g),calc(50% + var(--s)*0.224) calc(50% + var(--s)*-0.271) var(--g),calc(50% + var(--s)*0.346) calc(50% + var(--s)*-0.064) var(--g),radial-gradient(calc(var(--s)*0.439),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.35) calc(50% + var(--s)*0.411) var(--g),calc(50% + var(--s)*0.004) calc(50% + var(--s)*0.539) var(--g),calc(50% + var(--s)*-0.344) calc(50% + var(--s)*0.416) var(--g),calc(50% + var(--s)*-0.531) calc(50% + var(--s)*0.097) var(--g),calc(50% + var(--s)*-0.469) calc(50% + var(--s)*-0.266) var(--g),calc(50% + var(--s)*-0.188) calc(50% + var(--s)*-0.506) var(--g),calc(50% + var(--s)*0.181) calc(50% + var(--s)*-0.508) var(--g),calc(50% + var(--s)*0.465) calc(50% + var(--s)*-0.273) var(--g),calc(50% + var(--s)*0.532) calc(50% + var(--s)*0.09) var(--g);
-    `,
-    10: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.224) calc(var(--s)*0.224) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.349) calc(50% + var(--s)*0.097) var(--g),calc(50% + var(--s)*0.225) calc(50% + var(--s)*0.283) var(--g),calc(50% + var(--s)*0.016) calc(50% + var(--s)*0.361) var(--g),calc(50% + var(--s)*-0.199) calc(50% + var(--s)*0.302) var(--g),calc(50% + var(--s)*-0.339) calc(50% + var(--s)*0.127) var(--g),calc(50% + var(--s)*-0.349) calc(50% + var(--s)*-0.097) var(--g),calc(50% + var(--s)*-0.225) calc(50% + var(--s)*-0.283) var(--g),calc(50% + var(--s)*-0.016) calc(50% + var(--s)*-0.361) var(--g),calc(50% + var(--s)*0.199) calc(50% + var(--s)*-0.302) var(--g),calc(50% + var(--s)*0.339) calc(50% + var(--s)*-0.127) var(--g),radial-gradient(calc(var(--s)*0.444),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.448) calc(50% + var(--s)*0.297) var(--g),calc(50% + var(--s)*0.188) calc(50% + var(--s)*0.503) var(--g),calc(50% + var(--s)*-0.143) calc(50% + var(--s)*0.518) var(--g),calc(50% + var(--s)*-0.421) calc(50% + var(--s)*0.335) var(--g),calc(50% + var(--s)*-0.537) calc(50% + var(--s)*0.024) var(--g),calc(50% + var(--s)*-0.448) calc(50% + var(--s)*-0.297) var(--g),calc(50% + var(--s)*-0.188) calc(50% + var(--s)*-0.503) var(--g),calc(50% + var(--s)*0.143) calc(50% + var(--s)*-0.518) var(--g),calc(50% + var(--s)*0.421) calc(50% + var(--s)*-0.335) var(--g),calc(50% + var(--s)*0.537) calc(50% + var(--s)*-0.024) var(--g);
-    `,
-    11: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.209) calc(var(--s)*0.209) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.368) calc(50% + var(--s)*0.042) var(--g),calc(50% + var(--s)*0.286) calc(50% + var(--s)*0.234) var(--g),calc(50% + var(--s)*0.114) calc(50% + var(--s)*0.352) var(--g),calc(50% + var(--s)*-0.094) calc(50% + var(--s)*0.358) var(--g),calc(50% + var(--s)*-0.273) calc(50% + var(--s)*0.25) var(--g),calc(50% + var(--s)*-0.365) calc(50% + var(--s)*0.063) var(--g),calc(50% + var(--s)*-0.341) calc(50% + var(--s)*-0.144) var(--g),calc(50% + var(--s)*-0.209) calc(50% + var(--s)*-0.305) var(--g),calc(50% + var(--s)*-0.011) calc(50% + var(--s)*-0.37) var(--g),calc(50% + var(--s)*0.191) calc(50% + var(--s)*-0.317) var(--g),calc(50% + var(--s)*0.332) calc(50% + var(--s)*-0.163) var(--g),radial-gradient(calc(var(--s)*0.448),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.493) calc(50% + var(--s)*0.209) var(--g),calc(50% + var(--s)*0.302) calc(50% + var(--s)*0.442) var(--g),calc(50% + var(--s)*0.015) calc(50% + var(--s)*0.535) var(--g),calc(50% + var(--s)*-0.277) calc(50% + var(--s)*0.459) var(--g),calc(50% + var(--s)*-0.481) calc(50% + var(--s)*0.236) var(--g),calc(50% + var(--s)*-0.532) calc(50% + var(--s)*-0.061) var(--g),calc(50% + var(--s)*-0.415) calc(50% + var(--s)*-0.339) var(--g),calc(50% + var(--s)*-0.166) calc(50% + var(--s)*-0.509) var(--g),calc(50% + var(--s)*0.136) calc(50% + var(--s)*-0.518) var(--g),calc(50% + var(--s)*0.395) calc(50% + var(--s)*-0.362) var(--g),calc(50% + var(--s)*0.528) calc(50% + var(--s)*-0.091) var(--g);
-    `,
-    12: `
-      aspect-ratio: 1;
-      --g:/calc(var(--s)*0.195) calc(var(--s)*0.195) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-      mask: calc(50% + var(--s)*0.332) calc(50% + var(--s)*0.18) var(--g),calc(50% + var(--s)*0.197) calc(50% + var(--s)*0.322) var(--g),calc(50% + var(--s)*0.01) calc(50% + var(--s)*0.377) var(--g),calc(50% + var(--s)*-0.18) calc(50% + var(--s)*0.332) var(--g),calc(50% + var(--s)*-0.322) calc(50% + var(--s)*0.197) var(--g),calc(50% + var(--s)*-0.377) calc(50% + var(--s)*0.01) var(--g),calc(50% + var(--s)*-0.332) calc(50% + var(--s)*-0.18) var(--g),calc(50% + var(--s)*-0.197) calc(50% + var(--s)*-0.322) var(--g),calc(50% + var(--s)*-0.01) calc(50% + var(--s)*-0.377) var(--g),calc(50% + var(--s)*0.18) calc(50% + var(--s)*-0.332) var(--g),calc(50% + var(--s)*0.322) calc(50% + var(--s)*-0.197) var(--g),calc(50% + var(--s)*0.377) calc(50% + var(--s)*-0.01) var(--g),radial-gradient(calc(var(--s)*0.452),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.387) calc(50% + var(--s)*0.367) var(--g),calc(50% + var(--s)*0.152) calc(50% + var(--s)*0.512) var(--g),calc(50% + var(--s)*-0.125) calc(50% + var(--s)*0.519) var(--g),calc(50% + var(--s)*-0.367) calc(50% + var(--s)*0.387) var(--g),calc(50% + var(--s)*-0.512) calc(50% + var(--s)*0.152) var(--g),calc(50% + var(--s)*-0.519) calc(50% + var(--s)*-0.125) var(--g),calc(50% + var(--s)*-0.387) calc(50% + var(--s)*-0.367) var(--g),calc(50% + var(--s)*-0.152) calc(50% + var(--s)*-0.512) var(--g),calc(50% + var(--s)*0.125) calc(50% + var(--s)*-0.519) var(--g),calc(50% + var(--s)*0.367) calc(50% + var(--s)*-0.387) var(--g),calc(50% + var(--s)*0.512) calc(50% + var(--s)*-0.152) var(--g),calc(50% + var(--s)*0.519) calc(50% + var(--s)*0.125) var(--g);
-    `
-  },
-  triangle: `
-    aspect-ratio: 1/cos(30deg) !important;
-    --g:calc(tan(60deg)*var(--r)) bottom var(--r),#000 98%,#0000 101%;
-    -webkit-mask:
-      conic-gradient(from -30deg at 50% calc(200% - 3*var(--r)/2),#000 60deg,#0000 0)
-      0 100%/100% calc(100% - 3*var(--r)/2) no-repeat,
-      radial-gradient(var(--r) at 50% calc(2*var(--r)),#000 98%,#0000 101%),
-      radial-gradient(var(--r) at left  var(--g)),
-      radial-gradient(var(--r) at right var(--g));
-    clip-path: polygon(50% 0,100% 100%,0 100%);
-  `,
-  burst: `
-    aspect-ratio: 1;
-    clip-path: polygon(100% 50%,78.98% 57.76%,93.3% 75%,71.21% 71.21%,75% 93.3%,57.76% 78.98%,50% 100%,42.24% 78.98%,25% 93.3%,28.79% 71.21%,6.7% 75%,21.02% 57.76%,0% 50%,21.02% 42.24%,6.7% 25%,28.79% 28.79%,25% 6.7%,42.24% 21.02%,50% 0%,57.76% 21.02%,75% 6.7%,71.21% 28.79%,93.3% 25%,78.98% 42.24%);
-  `
-};
 class BiShape extends HTMLElement {
   static get observedAttributes() {
     return ["variant", "side", "radius"];
   }
 
-  connectedCallback() {
-    this.parent = this.parentElement;
-    if (!this.parent) return;
+  constructor() {
+    super();
 
-    this.observeSize();
-    this.apply();
+    this.canvas = document.createElement("canvas");
+    this.ctx = this.canvas.getContext("2d");
+
+    this.ro = new ResizeObserver(() => this.resize());
+  }
+
+  connectedCallback() {
+    this.ro.observe(this);
+
+    this.style.display = "inline-block";
+    this.style.maskMode = "alpha";
+
+    // kritik fix
+    if (!this.style.width)
+      this.style.width = "200px";
+
+    if (!this.style.height)
+      this.style.height = "200px";
+
+    this.resize();
   }
 
   attributeChangedCallback() {
-    this.apply();
+    this.draw();
   }
 
-  observeSize() {
-    this.ro = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect;
-      const s = Math.min(width, height);
-      const r = this.getAttribute("radius") || 20;
-      this.parent.style.setProperty("--s", `${s}px`);
-      this.parent.style.setProperty("--r", `${r}px`);
-    });
-    this.ro.observe(this.parent);
+  resize() {
+    const rect = this.getBoundingClientRect();
+
+    this.canvas.width = rect.width;
+    this.canvas.height = rect.height;
+
+    this.draw();
+    this.applyMask();
   }
 
-  apply() {
-    if (!this.parent) return;
+  draw() {
+    const ctx = this.ctx;
+    if (!ctx) return;
 
-    const variant = this.getAttribute("variant") || "cookie";
-    const side = this.getAttribute("side") || "4";
+    const w = this.canvas.width;
+    const h = this.canvas.height;
 
-    let shapeCSS = "";
+    ctx.clearRect(0, 0, w, h);
 
-    if (variant === "cookie") {
-      shapeCSS = SHAPES.cookie?.[side];
+    const variant = this.getAttribute("variant") || "circle";
+    const sides = Number(this.getAttribute("side") || 6);
+
+    const cx = w / 2;
+    const cy = h / 2;
+    const radius = Math.min(w, h) / 2;
+
+    const shapes = {
+
+      // basic
+      circle: () => this.drawCircle(cx, cy, radius),
+      square: () => this.drawPolygon(cx, cy, radius, 4),
+      triangle: () => this.drawPolygon(cx, cy, radius, 3),
+
+      // polygons
+      pentagon: () => this.drawPolygon(cx, cy, radius, 5),
+      hexagon: () => this.drawPolygon(cx, cy, radius, 6),
+      heptagon: () => this.drawPolygon(cx, cy, radius, 7),
+      octagon: () => this.drawPolygon(cx, cy, radius, 8),
+      nonagon: () => this.drawPolygon(cx, cy, radius, 9),
+      decagon: () => this.drawPolygon(cx, cy, radius, 10),
+
+      // stars
+      star: () => this.drawStar(cx, cy, radius, 5),
+      star6: () => this.drawStar(cx, cy, radius, 6),
+      star7: () => this.drawStar(cx, cy, radius, 7),
+      star8: () => this.drawStar(cx, cy, radius, 8),
+      star10: () => this.drawStar(cx, cy, radius, 10),
+
+      // md3 expressive
+      squircle: () => this.drawSquircle(cx, cy, radius),
+      diamond: () => this.drawDiamond(cx, cy, radius),
+      pill: () => this.drawPill(cx, cy, radius),
+      blob: () => this.drawBlob(cx, cy, radius, 6),
+      blob2: () => this.drawBlob(cx, cy, radius, 8),
+      blob3: () => this.drawBlob(cx, cy, radius, 10),
+
+      cookie: () => this.drawCookie(cx, cy, radius, sides),
+      burst: () => this.drawBurst(cx, cy, radius, sides),
+
+      flower: () => this.drawFlower(cx, cy, radius, 6),
+      flower8: () => this.drawFlower(cx, cy, radius, 8),
+
+      clover: () => this.drawClover(cx, cy, radius),
+
+      cross: () => this.drawCross(cx, cy, radius),
+
+      arrow: () => this.drawArrow(cx, cy, radius),
+
+      chevron: () => this.drawChevron(cx, cy, radius),
+
+      shield: () => this.drawShield(cx, cy, radius),
+
+      egg: () => this.drawEgg(cx, cy, radius),
+
+      arch: () => this.drawArch(cx, cy, radius),
+
+      fan: () => this.drawFan(cx, cy, radius),
+
+      drop: () => this.drawDrop(cx, cy, radius),
+
+      moon: () => this.drawMoon(cx, cy, radius),
+
+      heart: () => this.drawHeart(cx, cy, radius)
+    };
+
+    if (shapes[variant]) {
+      shapes[variant]();
     } else {
-      shapeCSS = SHAPES[variant];
+      this.drawCircle(cx, cy, radius);
     }
 
-    if (!shapeCSS) return;
+    this.applyMask();
+  }
 
-    this.parent.style.removeProperty("mask");
-    this.parent.style.removeProperty("-webkit-mask");
-    this.parent.style.removeProperty("clip-path");
+  getCornerRadius(variant, shapeRadius) {
+    const attr = this.getAttribute("radius");
 
-    this.parent.style.cssText += shapeCSS;
+    // user override
+    if (attr) {
+
+      if (attr.endsWith("%")) {
+
+        const percent = Number(attr.slice(0, -1));
+        return shapeRadius * percent / 100;
+
+      }
+
+      return Number(attr);
+    }
+
+    // shape default
+    return this.getDefaultCornerRadius(variant, shapeRadius);
+  }
+
+  getDefaultCornerRadius(variant, shapeRadius) {
+    const defaults = {
+
+      circle: shapeRadius,
+      square: shapeRadius * 0.12,
+      triangle: shapeRadius * 0.08,
+
+      pentagon: shapeRadius * 0.10,
+      hexagon: shapeRadius * 0.12,
+      heptagon: shapeRadius * 0.14,
+      octagon: shapeRadius * 0.16,
+      nonagon: shapeRadius * 0.18,
+      decagon: shapeRadius * 0.20,
+
+      star: shapeRadius * 0.08,
+      star6: shapeRadius * 0.08,
+      star7: shapeRadius * 0.08,
+      star8: shapeRadius * 0.08,
+      star10: shapeRadius * 0.08,
+
+      squircle: shapeRadius * 0.45,
+
+      diamond: shapeRadius * 0.15,
+
+      cookie: shapeRadius * 0.25,
+
+      burst: shapeRadius * 0.10,
+
+      flower: shapeRadius * 0.22,
+      flower8: shapeRadius * 0.22,
+
+      blob: shapeRadius * 0.35,
+      blob2: shapeRadius * 0.35,
+      blob3: shapeRadius * 0.35,
+
+      pill: shapeRadius * 0.5,
+
+      clover: shapeRadius * 0.4,
+
+      shield: shapeRadius * 0.2,
+
+      drop: shapeRadius * 0.35,
+
+      egg: shapeRadius * 0.3,
+
+      heart: shapeRadius * 0.25
+
+    };
+
+    return defaults[variant] ?? 0;
+  }
+
+  applyMask() {
+    const url = this.canvas.toDataURL();
+
+    this.style.maskImage = `url(${url})`;
+    this.style.webkitMaskImage = `url(${url})`;
+
+    this.style.maskSize = "100% 100%";
+    this.style.webkitMaskSize = "100% 100%";
+
+    this.style.maskRepeat = "no-repeat";
+    this.style.webkitMaskRepeat = "no-repeat";
+  }
+
+  drawPolygon(cx, cy, radius, sides) {
+
+    const ctx = this.ctx;
+    const cornerRadius = this.getCornerRadius();
+
+    const points = [];
+
+    for (let i = 0; i < sides; i++) {
+
+      const angle = (i / sides) * Math.PI * 2 - Math.PI / 2;
+
+      points.push({
+        x: cx + Math.cos(angle) * radius,
+        y: cy + Math.sin(angle) * radius
+      });
+
+    }
+
+    this.drawRoundedPath(points, cornerRadius);
+  }
+
+  drawRoundedPath(points, radius) {
+    const ctx = this.ctx;
+
+    if (radius <= 0) {
+
+      ctx.beginPath();
+
+      ctx.moveTo(points[0].x, points[0].y);
+
+      for (let i = 1; i < points.length; i++)
+        ctx.lineTo(points[i].x, points[i].y);
+
+      ctx.closePath();
+      ctx.fillStyle = "black";
+      ctx.fill();
+      return;
+    }
+
+    ctx.beginPath();
+
+    const len = points.length;
+
+    for (let i = 0; i < len; i++) {
+
+      const prev = points[(i - 1 + len) % len];
+      const curr = points[i];
+      const next = points[(i + 1) % len];
+
+      const dx1 = curr.x - prev.x;
+      const dy1 = curr.y - prev.y;
+
+      const dx2 = next.x - curr.x;
+      const dy2 = next.y - curr.y;
+
+      const len1 = Math.hypot(dx1, dy1);
+      const len2 = Math.hypot(dx2, dy2);
+
+      const r = Math.min(radius, len1 / 2, len2 / 2);
+
+      const p1x = curr.x - dx1 / len1 * r;
+      const p1y = curr.y - dy1 / len1 * r;
+
+      const p2x = curr.x + dx2 / len2 * r;
+      const p2y = curr.y + dy2 / len2 * r;
+
+      if (i === 0)
+        ctx.moveTo(p1x, p1y);
+      else
+        ctx.lineTo(p1x, p1y);
+
+      ctx.quadraticCurveTo(curr.x, curr.y, p2x, p2y);
+    }
+
+    ctx.closePath();
+
+    ctx.fillStyle = "black";
+    ctx.fill();
+  }
+
+  drawCookie(cx, cy, radius, bumps) {
+
+    const ctx = this.ctx;
+
+    const base = radius * 0.82;
+    const amp  = radius * 0.18;
+
+    const samples = bumps * 40; // ne kadar yüksek, o kadar smooth
+
+    ctx.beginPath();
+
+    for (let i = 0; i <= samples; i++) {
+
+      const t = i / samples;
+      const angle = t * Math.PI * 2;
+
+      const r = base + amp * Math.cos(bumps * angle);
+
+      const x = cx + Math.cos(angle) * r;
+      const y = cy + Math.sin(angle) * r;
+
+      if (i === 0)
+        ctx.moveTo(x, y);
+      else
+        ctx.lineTo(x, y);
+    }
+
+    ctx.closePath();
+    ctx.fillStyle = "black";
+    ctx.fill();
+  }
+
+  drawTriangle(cx, cy, radius) {
+    this.drawPolygon(cx, cy, radius, 3);
+  }
+
+  drawBurst(cx, cy, radius, spikes) {
+    const cornerRadius = this.getCornerRadius("burst", radius);
+
+    const outer = radius;
+    const inner = radius * 0.5;
+
+    const points = [];
+
+    for (let i = 0; i < spikes * 2; i++) {
+
+      const angle = (i / (spikes * 2)) * Math.PI * 2 - Math.PI / 2;
+
+      const r = i % 2 === 0 ? outer : inner;
+
+      points.push({
+        x: cx + Math.cos(angle) * r,
+        y: cy + Math.sin(angle) * r
+      });
+
+    }
+
+    this.drawRoundedPath(points, cornerRadius);
+  }
+
+  drawCircle(cx, cy, r) {
+    const corner = this.getCornerRadius();
+
+    if (corner <= 0) {
+
+      this.ctx.beginPath();
+      this.ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      this.ctx.fill();
+
+    } else {
+
+      this.drawSquircle(cx, cy, r);
+
+    }
+  }
+
+  drawStar(cx, cy, radius, spikes) {
+    const outer = radius;
+    const inner = radius * 0.5;
+
+    const cornerRadius = this.getCornerRadius();
+
+    const points = [];
+
+    for (let i = 0; i < spikes * 2; i++) {
+
+      const angle = i * Math.PI / spikes;
+
+      const r = i % 2 === 0 ? outer : inner;
+
+      points.push({
+        x: cx + Math.cos(angle) * r,
+        y: cy + Math.sin(angle) * r
+      });
+    }
+
+    this.drawRoundedPath(points, cornerRadius);
+  }
+
+  drawDiamond(cx, cy, r) {
+    const cornerRadius = this.getCornerRadius("diamond", r);
+
+    const points = [
+      { x: cx,     y: cy - r },
+      { x: cx + r, y: cy     },
+      { x: cx,     y: cy + r },
+      { x: cx - r, y: cy     }
+    ];
+
+    this.drawRoundedPath(points, cornerRadius);
+  }
+
+  drawSquircle(cx, cy, r) {
+    const ctx = this.ctx;
+    const steps = 200;
+
+    ctx.beginPath();
+
+    for (let i = 0; i <= steps; i++) {
+
+      const t = (i / steps) * Math.PI * 2;
+
+      const x = cx + r * Math.sign(Math.cos(t)) * Math.pow(Math.abs(Math.cos(t)), 0.5);
+      const y = cy + r * Math.sign(Math.sin(t)) * Math.pow(Math.abs(Math.sin(t)), 0.5);
+
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+
+    ctx.closePath();
+    ctx.fillStyle = "black";
+    ctx.fill();
   }
 }
 

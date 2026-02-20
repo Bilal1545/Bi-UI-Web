@@ -52,8 +52,6 @@ class BiRipple extends HTMLElement {
       host.style.position = "relative";
     }
 
-    host.style.overflow = "hidden";
-
     host.addEventListener("pointerdown", this._down);
     host.addEventListener("pointerup", this._up);
     host.addEventListener("pointerleave", this._up);

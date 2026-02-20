@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/example/tokens.css">
   <link rel="stylesheet" href="/example/index.css">
   <meta name="bi-icons-type" content="svg">
-  <meta name="bi-icons-path" content="icons">
+  <meta name="bi-icons-path" content="/example/icons">
 </head>
 <body class="dark">
 
@@ -15,8 +15,8 @@
   <h2 class="bi-typescale-headline">Button Examples</h2>
 
   <bi-button variant="text">Text</bi-button>
-  <bi-button shape="square" variant="glass">Glass</bi-button>
-  <bi-button shape="square" variant="outlined">Outlined</bi-button>
+  <bi-button variant="glass">Glass</bi-button>
+  <bi-button variant="outlined">Outlined</bi-button>
   
   <bi-button variant="tonal">Tonal -Secondary</bi-button>
   <bi-button variant="tonal" color="primary">Tonal -Primary</bi-button>
@@ -178,84 +178,6 @@
     }
   </script>
 
-  <h2>Card Examples</h2>
-  
-  <!-- Attribute-based Card Examples -->
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-    <bi-card variant="elevated" title="Elevated Card" subtitle="A" text="BCÇDE" style="width: 300px;">
-      <bi-button slot="actions" variant="tonal">Action</bi-button>
-    </bi-card>
-
-    <bi-card variant="outlined" title="Outlined Card" subtitle="B" text="This is an outlined card with border." style="width: 300px;">
-      <bi-button slot="actions" variant="filled">Learn More</bi-button>
-    </bi-card>
-
-    <bi-card variant="filled" title="Filled Card" subtitle="C" text="This card uses filled variant with surface container background." style="width: 300px;">
-      <bi-button slot="actions" variant="text">View</bi-button>
-    </bi-card>
-  </div>
-
-  <!-- Card Colors -->
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-    <bi-card color="primary" title="Primary Card" subtitle="Primary Theme" text="This card uses primary color scheme." style="width: 280px;">
-      <bi-button slot="actions" variant="tonal" color="primary">Action</bi-button>
-    </bi-card>
-
-    <bi-card color="secondary" title="Secondary Card" subtitle="Secondary Theme" text="This card uses secondary color scheme." style="width: 280px;">
-      <bi-button slot="actions" variant="tonal" color="secondary">Action</bi-button>
-    </bi-card>
-
-    <bi-card color="tertiary" title="Tertiary Card" subtitle="Tertiary Theme" text="This card uses tertiary color scheme." style="width: 280px;">
-      <bi-button slot="actions" variant="tonal" color="tertiary">Action</bi-button>
-    </bi-card>
-  </div>
-
-  <!-- Card Sizes -->
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-start;">
-    <bi-card size="xs" title="XS Card" subtitle="Extra Small" text="Minimal padding and compact layout." style="width: 200px;">
-      <bi-button slot="actions" size="xs" variant="tonal">Go</bi-button>
-    </bi-card>
-
-    <bi-card size="sm" title="SM Card" subtitle="Small" text="Compact layout with reduced spacing." style="width: 220px;">
-      <bi-button slot="actions" size="xs" variant="tonal">Go</bi-button>
-    </bi-card>
-
-    <bi-card size="lg" title="LG Card" subtitle="Large" text="Spacious layout with more content area for detailed information." style="width: 320px;">
-      <bi-button slot="actions" size="md" variant="tonal">Learn More</bi-button>
-      <bi-button slot="actions" size="md" variant="text">Cancel</bi-button>
-    </bi-card>
-
-    <bi-card size="xl" title="XL Card" subtitle="Extra Large" text="Maximum spacing and generous content area for comprehensive information display." style="width: 360px;">
-      <bi-button slot="actions" size="lg" variant="filled">Get Started</bi-button>
-      <bi-button slot="actions" size="lg" variant="tonal">Learn More</bi-button>
-    </bi-card>
-  </div>
-
-  <!-- Interactive Cards -->
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-    <bi-card clickable variant="elevated" title="Clickable Card" subtitle="Interactive" text="This entire card is clickable. Click anywhere to trigger action." style="width: 280px;" onclick="alert('Card clicked!')">
-    </bi-card>
-
-    <bi-card disabled title="Disabled Card" subtitle="Inactive" text="This card is disabled and not interactive." style="width: 280px;">
-      <bi-button slot="actions" size="sm" disabled variant="tonal">Disabled Action</bi-button>
-    </bi-card>
-  </div>
-
-  <!-- Simple Usage Examples -->
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-    <bi-card title="Simple Card" text="Just title and text, no actions." style="width: 250px;">
-    </bi-card>
-
-    <bi-card subtitle="Only Subtitle" text="Card with only subtitle and text content." style="width: 250px;">
-      <bi-button slot="actions" size="sm" variant="tonal">OK</bi-button>
-    </bi-card>
-
-    <bi-card title="No Subtitle" text="Card with title but no subtitle." style="width: 250px;">
-      <bi-button slot="actions" size="sm" variant="filled">Action</bi-button>
-      <bi-button slot="actions" size="sm" variant="text">Cancel</bi-button>
-    </bi-card>
-  </div>
-
   <bi-text-field label="Username" variant="outlined"></bi-text-field>
   <bi-text-field label="Password" variant="filled"></bi-text-field>
 
@@ -264,21 +186,43 @@
   <br>
   <bi-checkbox value="70" size="lg"></bi-checkbox> <span>Checkbox</span><br>
   <bi-checkbox value="70" size="lg" checked></bi-checkbox> <span>Checkbox - Checked</span><br>
-  <bi-checkbox value="70" size="lg" indeterminate></bi-checkbox> <span>Checkbox - indeterminate</span>
+  <bi-checkbox value="70" size="lg" indeterminate></bi-checkbox> <span>Checkbox - indeterminate</span><br>
+  
+  <bi-radio-group value="b" id="group">
+    <bi-radio value="a">Option A</bi-radio>
+    <bi-radio value="b">Option B</bi-radio>
+    <bi-radio value="c">Option C</bi-radio>
+  </bi-radio-group>
+
+  <script>
+    const group = document.getElementById("group");
+
+    console.log(group.value); // b
+
+    group.addEventListener("change", e => {
+      console.log("selected:", group.value);
+    });
+
+    group.value = "c"; // setting from out
+  </script>
 
   <h2 class="bi-typescale-headline">Shape Examples</h2>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="3"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="4"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="5"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="6"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="7"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="8"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="9"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="10"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="11"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"><bi-shape variant="cookie" side="12"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px;"><bi-shape variant="triangle"></bi-shape></div>
-  <div style="background: var(--bi-sys-color-primary); width: 200px;"><bi-shape variant="burst"></bi-shape></div>
+  <bi-shape variant="cookie" side="3"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="4"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="5"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="6"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="7"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="8"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="9"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="10"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="11"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="cookie" side="12"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="triangle"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="burst"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="squircle"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="star" radius="10"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="circle"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="diamond" radius="10"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
   <script type="module" src="../src/main.js"></script>
 </body>
 </html>
