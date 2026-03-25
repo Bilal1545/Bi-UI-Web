@@ -83,7 +83,6 @@ class BiShape extends HTMLElement {
       // md3 expressive
       squircle: () => this.drawSquircle(cx, cy, radius),
       diamond: () => this.drawDiamond(cx, cy, radius),
-      pill: () => this.drawPill(cx, cy, radius),
       blob: () => this.drawBlob(cx, cy, radius, 6),
       blob2: () => this.drawBlob(cx, cy, radius, 8),
       blob3: () => this.drawBlob(cx, cy, radius, 10),
@@ -101,6 +100,10 @@ class BiShape extends HTMLElement {
       arrow: () => this.drawArrow(cx, cy, radius),
 
       chevron: () => this.drawChevron(cx, cy, radius),
+      pill: () => this.drawPill(cx, cy, radius),
+      bun: () => this.drawBun(cx, cy, radius),
+      oval: () => this.drawOval(cx, cy, radius),
+      semicircle: () => this.drawSemiCircle(cx, cy, radius),
 
       shield: () => this.drawShield(cx, cy, radius),
 
@@ -141,61 +144,7 @@ class BiShape extends HTMLElement {
 
       return Number(attr);
     }
-
-    // shape default
-    return this.getDefaultCornerRadius(variant, shapeRadius);
-  }
-
-  getDefaultCornerRadius(variant, shapeRadius) {
-    const defaults = {
-
-      circle: shapeRadius,
-      square: shapeRadius * 0.12,
-      triangle: shapeRadius * 0.08,
-
-      pentagon: shapeRadius * 0.10,
-      hexagon: shapeRadius * 0.12,
-      heptagon: shapeRadius * 0.14,
-      octagon: shapeRadius * 0.16,
-      nonagon: shapeRadius * 0.18,
-      decagon: shapeRadius * 0.20,
-
-      star: shapeRadius * 0.08,
-      star6: shapeRadius * 0.08,
-      star7: shapeRadius * 0.08,
-      star8: shapeRadius * 0.08,
-      star10: shapeRadius * 0.08,
-
-      squircle: shapeRadius * 0.45,
-
-      diamond: shapeRadius * 0.15,
-
-      cookie: shapeRadius * 0.25,
-
-      burst: shapeRadius * 0.10,
-
-      flower: shapeRadius * 0.22,
-      flower8: shapeRadius * 0.22,
-
-      blob: shapeRadius * 0.35,
-      blob2: shapeRadius * 0.35,
-      blob3: shapeRadius * 0.35,
-
-      pill: shapeRadius * 0.5,
-
-      clover: shapeRadius * 0.4,
-
-      shield: shapeRadius * 0.2,
-
-      drop: shapeRadius * 0.35,
-
-      egg: shapeRadius * 0.3,
-
-      heart: shapeRadius * 0.25
-
-    };
-
-    return defaults[variant] ?? 0;
+    return 0
   }
 
   applyMask() {
@@ -367,6 +316,219 @@ class BiShape extends HTMLElement {
     }
   }
 
+  drawSemiCircle(cx, cy, r) {
+    const ctx = this.ctx;
+
+    const w = r * 2;
+    const h = r;
+
+    const left = cx - r;
+    const right = cx + r;
+    const top = cy - r;
+    const bottom = cy;
+
+    const corner = this.getCornerRadius("semicircle", r);
+
+    const cr = Math.min(corner, r);
+
+    ctx.beginPath();
+
+    // üst yarım daire
+    ctx.arc(cx, bottom, r, Math.PI, 0, false);
+
+    // sağ alt köşe
+    if (cr > 0) {
+      ctx.lineTo(right, bottom - cr);
+      ctx.quadraticCurveTo(right, bottom, right - cr, bottom);
+    } else {
+      ctx.lineTo(right, bottom);
+    }
+
+    // alt düz çizgi
+    if (cr > 0) {
+      ctx.lineTo(left + cr, bottom);
+      ctx.quadraticCurveTo(left, bottom, left, bottom - cr);
+    } else {
+      ctx.lineTo(left, bottom);
+    }
+
+    ctx.closePath();
+    ctx.fillStyle = "white";
+    ctx.fill();
+  }
+
+  drawFan(cx, cy, r, cornerRadius = 20) {
+
+    const ctx = this.ctx;
+
+    const angle = Math.PI / 2;
+    const start = -Math.PI / 2;
+    const end = start + angle;
+
+    const sx = cx + Math.cos(start) * r;
+    const sy = cy + Math.sin(start) * r;
+
+    const ex = cx + Math.cos(end) * r;
+    const ey = cy + Math.sin(end) * r;
+
+    ctx.beginPath();
+
+    // başlangıç kenarı
+    ctx.moveTo(
+      cx + Math.cos(start) * cornerRadius,
+      cy + Math.sin(start) * cornerRadius
+    );
+
+    // dış kenar başlangıç yuvarlatma
+    ctx.arcTo(cx, cy, sx, sy, cornerRadius);
+
+    // dış yay
+    ctx.arc(cx, cy, r, start, end);
+
+    // dış kenar bitiş yuvarlatma
+    ctx.arcTo(cx, cy, ex, ey, cornerRadius);
+
+    ctx.closePath();
+
+    ctx.fillStyle = "black";
+    ctx.fill();
+  }
+
+  drawPill() {
+    const ctx = this.ctx;
+
+    const w = this.canvas.width;
+
+    // istediğin oran
+    const h = w * 0.65;
+    const r = h / 2;
+
+    const cx = w / 2;
+    const cy = this.canvas.height / 2;
+
+    ctx.save();
+
+    // 45° rotate
+    ctx.translate(cx, cy);
+    ctx.rotate(Math.PI / 1.35);
+    ctx.translate(-cx, -cy);
+
+    const left = cx - w / 2;
+    const right = cx + w / 2;
+    const top = cy - h / 2;
+    const bottom = cy + h / 2;
+
+    ctx.beginPath();
+
+    // sol yarım daire
+    ctx.arc(left + r, cy, r, Math.PI / 2, Math.PI * 1.5);
+
+    // üst çizgi
+    ctx.lineTo(right - r, top);
+
+    // sağ yarım daire
+    ctx.arc(right - r, cy, r, Math.PI * 1.5, Math.PI / 2);
+
+    // alt çizgi
+    ctx.closePath();
+
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  drawBun() {
+    const ctx = this.ctx;
+
+    const w = this.canvas.width;
+    const totalH = this.canvas.height;
+
+    const h = totalH / 2;
+    const r = h / 2;
+
+    const cx = w / 2;
+
+    ctx.beginPath();
+
+    // --- ÜST PILL ---
+    const topCy = h / 2;
+
+    ctx.moveTo(r, topCy - r);
+
+    ctx.arc(r, topCy, r, Math.PI * 1.5, Math.PI / 2, true);
+    ctx.lineTo(w - r, topCy + r);
+    ctx.arc(w - r, topCy, r, Math.PI / 2, Math.PI * 1.5, true);
+    ctx.closePath();
+
+    // --- ALT PILL ---
+    const bottomCy = h + h / 2;
+
+    ctx.moveTo(r, bottomCy - r);
+
+    ctx.arc(r, bottomCy, r, Math.PI * 1.5, Math.PI / 2, true);
+    ctx.lineTo(w - r, bottomCy + r);
+    ctx.arc(w - r, bottomCy, r, Math.PI / 2, Math.PI * 1.5, true);
+    ctx.closePath();
+
+    ctx.fillStyle = "black";
+    ctx.fill();
+  }
+
+  drawOval() {
+    const ctx = this.ctx;
+
+    const w = this.canvas.width;
+    const h = w * 0.5;
+
+    const rx = w / 2;
+    const ry = h / 2;
+
+    const cx = w / 2;
+    const cy = this.canvas.height / 2;
+
+    ctx.save();
+
+    // senin dramatik rotate açın
+    ctx.translate(cx, cy);
+    ctx.rotate(Math.PI / 1.4);
+    ctx.translate(-cx, -cy);
+
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  drawArrow(cx, cy, r) {
+    const corner = this.getCornerRadius("arrow", r);
+
+    const w = r * 2;
+    const h = r * 2;
+
+    const left = cx - w / 2;
+    const right = cx + w / 2;
+    const top = cy - h / 2;
+    const bottom = cy + h / 2;
+
+    const notchWidth = w * 0.5;
+    const notchDepth = h * 0.1; // yukarı doğru oyulma
+
+    const points = [
+      { x: cx, y: top },                               // tepe
+      { x: right, y: bottom },                         // sağ alt dış
+      { x: cx + notchWidth / 2, y: bottom },           // notch sağ dış
+      { x: cx, y: bottom - notchDepth },               // notch iç (yukarı)
+      { x: cx - notchWidth / 2, y: bottom },           // notch sol dış
+      { x: left, y: bottom }                           // sol alt dış
+    ];
+
+    this.drawRoundedPath(points, corner);
+  }
+
   drawStar(cx, cy, radius, spikes) {
     const outer = radius;
     const inner = radius * 0.5;
@@ -395,9 +557,9 @@ class BiShape extends HTMLElement {
 
     const points = [
       { x: cx,     y: cy - r },
-      { x: cx + r, y: cy     },
+      { x: cx + (r * .75), y: cy     },
       { x: cx,     y: cy + r },
-      { x: cx - r, y: cy     }
+      { x: cx - (r * .75), y: cy     }
     ];
 
     this.drawRoundedPath(points, cornerRadius);

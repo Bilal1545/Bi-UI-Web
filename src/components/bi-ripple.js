@@ -21,8 +21,8 @@ class BiRipple extends HTMLElement {
         pointer-events: none;
 
         background: var(--bi-sys-color-ripple-color, var(--ripple-color));
-        opacity: 0.18;
-        filter: blur(8px);
+        opacity: 0.13;
+        filter: blur(15px);
 
         transform: scale(0);
         transition:

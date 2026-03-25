@@ -135,6 +135,17 @@ class BiElevation extends HTMLElement {
       "--bi-elevation-after-shadow",
       `0px ${y2}px ${blur2}px ${spread2}px ${color}`
     );
+
+    const surfaceMap = [
+      "--bi-sys-color-surface-container-lowest",
+      "--bi-sys-color-surface-container-low",
+      "--bi-sys-color-surface-container",
+      "--bi-sys-color-surface-container-high",
+      "--bi-sys-color-surface",
+      "--bi-sys-color-surface-container-highest"
+    ];
+    const idx = this.clamp(0, Math.round(level), surfaceMap.length - 1);
+    parent.style.setProperty("--bi-surface-color", `var(${surfaceMap[idx]})`);
   }
 
 }

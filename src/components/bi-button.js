@@ -56,6 +56,7 @@ class BiButton extends HTMLElement {
         font-size: 0.875rem;
 
         border: none;
+        outline: none;
         cursor: pointer;
 
         text-decoration: none;
@@ -86,89 +87,45 @@ class BiButton extends HTMLElement {
         filter: grayscale(100%);
       }
 
-      /* =============== COLORS =============== */
-
-      :host([color="primary"]) :is(button,a) {
-        --colorContainer: var(--bi-sys-color-primary-container);
-        --onColorContainer: var(--bi-sys-color-on-primary-container);
-      }
-
-      :host([color="secondary"]) :is(button,a) {
-        --color: var(--bi-sys-color-secondary);
-        --onColor: var(--bi-sys-color-on-secondary);
-      }
-
-      :host([color="tertiary"]) :is(button,a) {
-        --color: var(--bi-sys-color-tertiary);
-        --onColor: var(--bi-sys-color-on-tertiary);
-        --colorContainer: var(--bi-sys-color-tertiary-container);
-        --onColorContainer: var(--bi-sys-color-on-tertiary-container);
-      }
-
-      :host([color="error"]) :is(button,a) {
-        --color: var(--bi-sys-color-error);
-        --onColor: var(--bi-sys-color-on-error);
-        --colorContainer: var(--bi-sys-color-error-container);
-        --onColorContainer: var(--bi-sys-color-on-error-container);
-      }
-
       /* ============== VARIANTS ============== */
 
       /* ---- TEXT ---- */
       :host([variant="text"]) :is(button,a) {
-        background: transparent;
-        color: var(--color);
+        background: var(--bi-text-button-container-color);
+        color: var(--bi-text-button-label-text-color);
         border-radius: var(--bi-text-button-container-shape);
         font-family: var(--bi-text-button-label-text-font);
       }
 
       :host([variant="text"]) :is(button,a):hover {
-        background: color-mix(in srgb, currentColor 10%, transparent);
-      }
-
-      /* ---- GLASS ---- */
-      :host([variant="glass"]) :is(button,a) {
-        background: color-mix(in srgb, var(--bi-sys-color-primary) 8%, transparent);
-        color: var(--color);
-        border-radius: var(--bi-glass-button-container-shape);
-        font-family: var(--bi-glass-button-label-text-font);
-        --bi-elevation-shadow-level: 1;
-      }
-
-      :host([variant="glass"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--bi-sys-color-primary) 12%, transparent);
-        --bi-elevation-shadow-level: 2;
-      }
-
-      :host([variant="glass"]) :is(button,a):active {
-        --bi-elevation-shadow-level: 0 !important;
+        background: color-mix(in srgb, var(--bi-text-button-label-text-color) 10%, var(--bi-text-button-container-color));
       }
 
       /* ---- OUTLINED ---- */
       :host([variant="outlined"]) :is(button,a) {
-        background: transparent;
-        color: var(--bi-sys-color-on-background);
-        border: 1px solid var(--bi-sys-color-outline);
+        background: var(--bi-outlined-button-container-color);
+        color: var(--bi-outlined-button-label-text-color);
+        border: .0625rem solid var(--bi-sys-color-outline);
         border-radius: var(--bi-outlined-button-container-shape);
         font-family: var(--bi-outlined-button-label-text-font);
         --ripple-color: var(--bi-sys-color-primary)
       }
 
       :host([variant="outlined"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--bi-sys-color-primary) 8%, transparent);
+        background: color-mix(in srgb, var(--bi-outlined-button-label-text-color) 8%, var(--bi-outlined-button-container-color));
       }
 
       /* ---- FILLED ---- */
       :host([variant="filled"]) :is(button,a) {
-        background: var(--color);
-        color: var(--onColor);
+        background: var(--bi-filled-button-container-color);
+        color: var(--bi-filled-button-label-text-color);
         border-radius: var(--bi-filled-button-container-shape);
         font-family: var(--bi-filled-button-label-text-font);
-        --ripple-color: rgba(0,0,0,0.35);
+        --ripple-color: var(--bi-filled-button-label-text-color);
       }
 
       :host([variant="filled"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--color) 90%, black);
+        background: color-mix(in srgb, var(--bi-filled-button-container-color) 90%, var(--bi-filled-button-label-text-color));
         --bi-elevation-shadow-level: 1;
       }
 
@@ -178,14 +135,14 @@ class BiButton extends HTMLElement {
 
       /* ---- TONAL ---- */
       :host([variant="tonal"]) :is(button,a) {
-        background: var(--colorContainer);
-        color: var(--onColorContainer);
+        background: var(--bi-tonal-button-container-color);
+        color: var(--bi-tonal-button-label-text-color);
         border-radius: var(--bi-tonal-button-container-shape);
         font-family: var(--bi-tonal-button-label-text-font);
       }
 
       :host([variant="tonal"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--colorContainer) 95%, white);
+        background: color-mix(in srgb, var(--bi-tonal-button-container-color) 95%, var(--bi-tonal-button-label-text-color));
         --bi-elevation-shadow-level: 1;
       }
 
@@ -195,48 +152,20 @@ class BiButton extends HTMLElement {
 
       /* ---- ELEVATED ---- */
       :host([variant="elevated"]) :is(button,a) {
-        background: var(--bi-sys-color-surface-container-low);
-        color: var(--bi-sys-color-primary);
+        background: var(--bi-elevated-button-container-color);
+        color: var(--bi-elevated-button-label-text-color);
         border-radius: var(--bi-elevated-button-container-shape);
         font-family: var(--bi-elevated-button-label-text-font);
         --bi-elevation-shadow-level: 1;
       }
 
       :host([variant="elevated"]) :is(button,a):hover {
-        background: color-mix(in srgb, var(--bi-sys-color-surface-container-low) 85%, var(--bi-sys-color-primary));
+        background: color-mix(in srgb, var(--bi-elevated-button-container-color) 85%, var(--bi-elevated-button-label-text-color));
         --bi-elevation-shadow-level: 2;
       }
 
       :host([variant="elevated"]) :is(button,a):active {
         --bi-elevation-shadow-level: 1;
-      }
-
-      :host([size="xs"]) button {
-        padding: 0.375rem 0.75rem; 
-        font-size: 0.75rem;
-        min-height: 1.75rem;
-        border-radius: 1rem;
-      }
-
-      :host([size="sm"]) button {
-        padding: 0.5rem 1rem;
-        font-size: 0.8125rem;
-        min-height: 2rem;
-        border-radius: 1.25rem;
-      }
-
-      :host([size="lg"]) button {
-        padding: 0.75rem 1.75rem;
-        font-size: 1rem;
-        min-height: 3rem;
-        border-radius: 1.5rem;
-      }
-
-      :host([size="xl"]) button {
-        padding: 1rem 2rem;
-        font-size: 1.125rem;
-        min-height: 3.5rem;
-        border-radius: 1.75rem;
       }
     `;
 

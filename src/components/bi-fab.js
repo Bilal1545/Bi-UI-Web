@@ -40,9 +40,9 @@ class BiFab extends HTMLElement {
       }
 
       button {
-        --bg: var(--bi-sys-color-surface);
+        --bg: var(--bi-fab-button-container-color);
         background: var(--bg);
-        --color: var(--bi-sys-color-primary);
+        --color: var(--bi-fab-label-text-color);
         color: var(--color);
         font-size: 1.75rem;
         min-height: 3.5rem;
@@ -53,7 +53,7 @@ class BiFab extends HTMLElement {
         --ripple-color: currentColor;
         padding: 0.625rem 1.5rem;
         font-size: 0.875rem;
-        font-family: sans-serif;
+        font-family: var(--bi-fab-button-label-text-font);
         border-radius: 1.25rem;
         border: none;
         cursor: pointer;
@@ -78,7 +78,6 @@ class BiFab extends HTMLElement {
         --color: var(--bi-sys-color-on-tertiary);
         --ripple-color: rgba(0,0,0,0.35);
       }
-
 
       :host([extended]) button {
         width: auto;

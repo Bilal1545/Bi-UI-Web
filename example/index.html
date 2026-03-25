@@ -8,43 +8,25 @@
   <meta name="bi-icons-type" content="svg">
   <meta name="bi-icons-path" content="/example/icons">
 </head>
-<body class="dark">
+<body>
 
   <h1 class="bi-typescale-display large">Bi UI Test</h1>
 
   <h2 class="bi-typescale-headline">Button Examples</h2>
 
   <bi-button variant="text">Text</bi-button>
-  <bi-button variant="glass">Glass</bi-button>
   <bi-button variant="outlined">Outlined</bi-button>
-  
-  <bi-button variant="tonal">Tonal -Secondary</bi-button>
-  <bi-button variant="tonal" color="primary">Tonal -Primary</bi-button>
-  <bi-button variant="tonal" color="tertiary">Tonal -Tertiary</bi-button>
-  <bi-button variant="tonal" color="error">Tonal -Error</bi-button>
-  <bi-button variant="tonal" color="success">Tonal -Success</bi-button>
+  <bi-button variant="tonal">Tonal</bi-button>
   <bi-button variant="elevated">Elevated</bi-button>
-  <bi-button variant="filled">Filled -Primary</bi-button>
-  <bi-button variant="filled" color="secondary">Filled -Secondary</bi-button>
-  <bi-button variant="filled" color="tertiary">Filled -Tertiary</bi-button>
-  <bi-button variant="filled" color="error">Filled -Error</bi-button>
-  <bi-button variant="filled" color="success">Filled -Success</bi-button>
-
+  <bi-button variant="filled">Filled</bi-button>
   <bi-button disabled variant="filled">disabled</bi-button>
   
   <bi-icon>test</bi-icon>
 
-  <bi-button size="xs" variant="tonal">Extra Small</bi-button>
-  <bi-button size="sm" variant="tonal">Small</bi-button>
-  <bi-button size="md" variant="tonal">Medium</bi-button>
-  <bi-button size="lg" variant="tonal">Large</bi-button>
-  <bi-button size="xl" variant="tonal">Extra Large</bi-button>
-
   <bi-icon-button width="wide" variant="text">A</bi-icon-button>
-  <bi-icon-button variant="glass">B</bi-icon-button>
-  <bi-icon-button width="narrow" variant="outlined">C</bi-icon-button>
-  <bi-icon-button variant="tonal">A</bi-icon-button>
-  <bi-icon-button width="wide"variant="filled">B</bi-icon-button>
+  <bi-icon-button width="narrow" variant="outlined">B</bi-icon-button>
+  <bi-icon-button variant="tonal">C</bi-icon-button>
+  <bi-icon-button width="wide"variant="filled">D</bi-icon-button>
 
   <bi-split-button size="xs" variant="glass">Split Button</bi-split-button>
   <bi-split-button size="sm" variant="outlined">Split Button</bi-split-button>
@@ -54,6 +36,7 @@
   <bi-split-button size="xl" variant="filled" color="secondary">Split Button</bi-split-button>
 
   <bi-fab variant="primary" size="sm">A</bi-fab>
+  
   <bi-fab variant="secondary">C</bi-fab>
   
   <bi-fab variant="tertiary" size="lg">D</bi-fab>
@@ -223,6 +206,29 @@
   <bi-shape variant="star" radius="10"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
   <bi-shape variant="circle"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
   <bi-shape variant="diamond" radius="10"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="semicircle" radius="10"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="fan" radius="10"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="pill"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="oval"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="bun"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+  <bi-shape variant="arrow" radius="100"><div style="background: var(--bi-sys-color-primary); width: 200px; height: 200px;"></div></bi-shape>
+
+  <bi-circular-progress indeterminate></bi-circular-progress>
+  <bi-circular-progress indeterminate mode="4colours"></bi-circular-progress>
+
+  <div style="background: var(--bi-surface-color); width: 200px; height: 200px; --bi-elevation-shadow-level: 0; border-radius: 1rem; padding: 3rem;"><bi-elevation></bi-elevation>Level 0</div>
+  <div style="background: var(--bi-surface-color); width: 200px; height: 200px; --bi-elevation-shadow-level: 1; border-radius: 1rem; padding: 3rem;"><bi-elevation></bi-elevation>Level 1</div>
+  <div style="background: var(--bi-surface-color); width: 200px; height: 200px; --bi-elevation-shadow-level: 2; border-radius: 1rem; padding: 3rem;"><bi-elevation></bi-elevation>Level 2</div>
+  <div style="background: var(--bi-surface-color); width: 200px; height: 200px; --bi-elevation-shadow-level: 3; border-radius: 1rem; padding: 3rem;"><bi-elevation></bi-elevation>Level 3</div>
+  <div style="background: var(--bi-surface-color); width: 200px; height: 200px; --bi-elevation-shadow-level: 4; border-radius: 1rem; padding: 3rem;"><bi-elevation></bi-elevation>Level 4</div>
+  <div style="background: var(--bi-surface-color); width: 200px; height: 200px; --bi-elevation-shadow-level: 5; border-radius: 1rem; padding: 3rem;"><bi-elevation></bi-elevation>Level 5</div>
+
+
+
+  <bi-item>A</bi-item>
+  <bi-item>B</bi-item>
+  <bi-item>C</bi-item>
+  <bi-item>D</bi-item>
   <script type="module" src="../src/main.js"></script>
 </body>
 </html>
