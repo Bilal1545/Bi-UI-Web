@@ -5,27 +5,25 @@ class BiItem extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["href", "disabled", "active"];
+    return ["href", "disabled"];
   }
 
   connectedCallback() {
     this.syncTheme();
-    this.syncActive();
     this.render();
     this.observeThemeChanges();
   }
 
   attributeChangedCallback() {
     this.syncTheme();
-    this.syncActive();
+    this.render();
   }
 
   // ================= THEME =================
   syncTheme() {
     const isDark = document.documentElement.classList.contains("dark");
 
-    this.classList.toggle("theme-dark", isDark);
-    this.classList.toggle("theme-light", !isDark);
+    this.setAttribute("data-theme", isDark ? "dark" : "light");
   }
 
   observeThemeChanges() {
@@ -39,12 +37,6 @@ class BiItem extends HTMLElement {
       attributes: true,
       attributeFilter: ["class"]
     });
-  }
-
-  // ================= ACTIVE =================
-  syncActive() {
-    const isActive = this.hasAttribute("active");
-    this.classList.toggle("active", isActive);
   }
 
   // ================= RENDER =================
@@ -106,7 +98,7 @@ class BiItem extends HTMLElement {
         --ripple-color: currentColor;
       }
 
-      /* ============== DISABLED ============== */
+      /* ================= DISABLED ================= */
       :host([disabled]) button,
       :host([disabled]) a {
         pointer-events: none;
@@ -114,43 +106,43 @@ class BiItem extends HTMLElement {
         filter: grayscale(100%);
       }
 
-      /* ============== DARK ============== */
-      :host(.theme-dark) :is(button,a) {
+      /* ================= DARK ================= */
+      :host([data-theme="dark"]) :is(button,a) {
         background: transparent;
         color: white;
         border-radius: var(--bi-item-container-shape);
         font-family: var(--bi-item-label-text-font);
       }
 
-      :host(.theme-dark) :is(button,a):hover {
+      :host([data-theme="dark"]) :is(button,a):hover {
         background: rgba(255, 255, 255, 0.1);
       }
 
-      :host(.theme-dark).active :is(button,a) {
+      :host([data-theme="dark"].active) :is(button,a) {
         background: rgba(255, 255, 255, 0.2);
       }
 
-      :host(.theme-dark).active :is(button,a):hover {
+      :host([data-theme="dark"].active) :is(button,a):hover {
         background: rgba(255, 255, 255, 0.3);
       }
 
-      /* ============== LIGHT ============== */
-      :host(.theme-light) :is(button,a) {
+      /* ================= LIGHT ================= */
+      :host([data-theme="light"]) :is(button,a) {
         background: transparent;
         color: black;
         border-radius: var(--bi-item-container-shape);
         font-family: var(--bi-item-label-text-font);
       }
 
-      :host(.theme-light) :is(button,a):hover {
+      :host([data-theme="light"]) :is(button,a):hover {
         background: rgba(0, 0, 0, 0.1);
       }
 
-      :host(.theme-light).active :is(button,a) {
+      :host([data-theme="light"].active) :is(button,a) {
         background: rgba(0, 0, 0, 0.2);
       }
 
-      :host(.theme-light).active :is(button,a):hover {
+      :host([data-theme="light"].active) :is(button,a):hover {
         background: rgba(0, 0, 0, 0.3);
       }
     `;
