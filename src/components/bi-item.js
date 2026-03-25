@@ -10,13 +10,14 @@ class BiItem extends HTMLElement {
 
   connectedCallback() {
     this.syncTheme();
+    this.syncActive();
     this.render();
     this.observeThemeChanges();
   }
 
   attributeChangedCallback() {
     this.syncTheme();
-    this.render();
+    this.syncActive();
   }
 
   // ================= THEME =================
@@ -38,6 +39,12 @@ class BiItem extends HTMLElement {
       attributes: true,
       attributeFilter: ["class"]
     });
+  }
+
+  // ================= ACTIVE =================
+  syncActive() {
+    const isActive = this.hasAttribute("active");
+    this.classList.toggle("active", isActive);
   }
 
   // ================= RENDER =================
@@ -119,12 +126,11 @@ class BiItem extends HTMLElement {
         background: rgba(255, 255, 255, 0.1);
       }
 
-      :host(.theme-dark)[active] :is(button,a) {
+      :host(.theme-dark).active :is(button,a) {
         background: rgba(255, 255, 255, 0.2);
-        color: white;
       }
 
-      :host(.theme-dark)[active] :is(button,a):hover {
+      :host(.theme-dark).active :is(button,a):hover {
         background: rgba(255, 255, 255, 0.3);
       }
 
@@ -140,12 +146,11 @@ class BiItem extends HTMLElement {
         background: rgba(0, 0, 0, 0.1);
       }
 
-      :host(.theme-light)[active] :is(button,a) {
+      :host(.theme-light).active :is(button,a) {
         background: rgba(0, 0, 0, 0.2);
-        color: black;
       }
 
-      :host(.theme-light)[active] :is(button,a):hover {
+      :host(.theme-light).active :is(button,a):hover {
         background: rgba(0, 0, 0, 0.3);
       }
     `;
