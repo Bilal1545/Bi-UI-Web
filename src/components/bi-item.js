@@ -116,16 +116,16 @@ class BiItem extends HTMLElement {
       }
 
       :host(.theme-dark) :is(button,a):hover {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
       }
 
       :host(.theme-dark)[active] :is(button,a) {
-        background: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.2);
         color: white;
       }
 
       :host(.theme-dark)[active] :is(button,a):hover {
-        background: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.3);
       }
 
       /* ============== LIGHT ============== */
@@ -137,7 +137,7 @@ class BiItem extends HTMLElement {
       }
 
       :host(.theme-light) :is(button,a):hover {
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.1);
       }
 
       :host(.theme-light)[active] :is(button,a) {
@@ -146,7 +146,7 @@ class BiItem extends HTMLElement {
       }
 
       :host(.theme-light)[active] :is(button,a):hover {
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.3);
       }
     `;
 
