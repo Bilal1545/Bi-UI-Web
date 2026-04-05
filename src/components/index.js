@@ -10,5 +10,4 @@ export * from "./bi-radio-group.js";
 export * from "./bi-icon.js";
 export * from "./bi-shape.js";
 export * from "./bi-elevation.js";
-export * from "./bi-circular-progress.js";
 export * from "./bi-item.js";
