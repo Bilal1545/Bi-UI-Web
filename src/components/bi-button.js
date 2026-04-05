@@ -34,11 +34,28 @@ class BiButton extends HTMLElement {
 
     const slot = document.createElement("slot");
     const ripple = document.createElement("bi-ripple");
-    if (this.getAttribute("variant") === "outlined" || this.getAttribute("variant") === "text") {
-      el.append(slot, ripple);
-    } else {
+    el.append(slot);
+    const variant = this.getAttribute("variant");
+
+    if (
+      variant !== "outlined" &&
+      variant !== "text" &&
+      window.BiUI.styles.elevation === true
+    ) {
       const elevation = document.createElement("bi-elevation");
-      el.append(slot, ripple, elevation);
+      el.append(elevation);
+    }
+
+    if (window.BiUI.interaction.ripple.enabled) {
+      el.append(ripple);
+    }
+
+    if (window.BiUI.interaction.scale.enabled) {
+      this.style.setProperty("--scale-active", window.BiUI.interaction.scale.active);
+      this.style.setProperty("--scale-hover", window.BiUI.interaction.scale.hover);
+    } else {
+      this.style.setProperty("--scale-active", 1);
+      this.style.setProperty("--scale-hover", 1);
     }
 
     const style = document.createElement("style");
@@ -58,6 +75,7 @@ class BiButton extends HTMLElement {
         border: none;
         outline: none;
         cursor: pointer;
+        width: max-content;
 
         text-decoration: none;
         user-select: none;
@@ -68,7 +86,10 @@ class BiButton extends HTMLElement {
 
         transition:
           background 0.2s ease,
-          box-shadow 0.2s ease;
+          box-shadow 0.2s ease,
+          transform ${window.BiUI.interaction.scale.duration}s ease;
+        transform-origin: center;
+        will-change: transform;
 
         --color: var(--bi-sys-color-primary);
         --onColor: var(--bi-sys-color-on-primary);
@@ -76,6 +97,16 @@ class BiButton extends HTMLElement {
         --onColorContainer: var(--bi-sys-color-on-secondary-container);
 
         --ripple-color: currentColor;
+      }
+
+      button:hover,
+      a:hover {
+        transform: scale(var(--scale-hover));
+      }
+
+      button:active,
+      a:active {
+        transform: scale(var(--scale-active));
       }
 
       /* ============== DISABLED ============== */

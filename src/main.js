@@ -1,3 +1,4 @@
+import "./config.js";
 import "./components/index.js";
 
 function applyThemeClass() {
@@ -86,6 +87,12 @@ style.textContent = `@import url('https://fonts.googleapis.com/css2?family=Robot
     --bi-sys-typescale-label-small-weight: 500;
 
     --bi-surface-color: var(--bi-sys-color-surface);
+    --bi-sys-shape-corner-none: 0;
+    --bi-sys-shape-corner-extra-small: .25rem;
+    --bi-sys-shape-corner-small: .5rem;
+    --bi-sys-shape-corner-medium: .75rem;
+    --bi-sys-shape-corner-large: 1rem;
+    --bi-sys-shape-corner-extra-large: 1.75rem;
     --bi-sys-shape-corner-full: 9999px;
 
 
@@ -125,32 +132,6 @@ style.textContent = `@import url('https://fonts.googleapis.com/css2?family=Robot
     --bi-fab-container-color: var(--bi-surface-color);
     --bi-fab-container-shape: var(--bi-sys-button-container-shape);
     
-
-    --bi-sys-icon-button-container-shape: var(--bi-sys-shape-corner-full);
-    --bi-text-icon-button-container-shape: var(--bi-sys-button-container-shape);
-    --bi-outlined-icon-button-container-shape: var(--bi-sys-button-container-shape);
-    --bi-tonal-icon-button-container-shape: var(--bi-sys-button-container-shape);
-    --bi-filled-icon-button-container-shape: var(--bi-sys-button-container-shape);
-    --bi-elevated-icon-button-container-shape: var(--bi-sys-button-container-shape);
-    
-    --bi-text-icon-button-container-color: transparent;
-    --bi-outlined-icon-button-container-color: transparent;
-    --bi-tonal-icon-button-container-color: var(--bi-sys-color-secondary-container);
-    --bi-filled-icon-button-container-color: var(--bi-sys-color-primary);
-    --bi-elevated-icon-button-container-color: var(--bi-surface-color);
-
-    --bi-sys-icon-button-label-text-font: var(--bi-ref-typeface-plain);
-    --bi-text-icon-button-label-text-font: var(--bi-sys-button-label-text-font);
-    --bi-outlined-icon-button-label-text-font: var(--bi-sys-button-label-text-font);
-    --bi-tonal-icon-button-label-text-font: var(--bi-sys-button-label-text-font);
-    --bi-filled-icon-button-label-text-font: var(--bi-sys-button-label-text-font);
-    --bi-elevated-icon-button-label-text-font: var(--bi-sys-button-label-text-font);
-
-    --bi-text-icon-button-label-text-color: var(--bi-sys-color-primary);
-    --bi-outlined-icon-button-label-text-color: var(--bi-sys-color-primary);
-    --bi-tonal-icon-button-label-text-color: var(--bi-sys-color-on-secondary-container);
-    --bi-filled-icon-button-label-text-color: var(--bi-sys-color-on-primary);
-    --bi-elevated-icon-button-label-text-color: var(--bi-sys-color-primary);
 }
 
 /* Global Font Settings */

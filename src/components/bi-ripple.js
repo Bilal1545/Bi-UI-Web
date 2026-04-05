@@ -26,7 +26,7 @@ class BiRipple extends HTMLElement {
 
         transform: scale(0);
         transition:
-          transform 520ms cubic-bezier(0.2, 0, 0, 1),
+          transform ${window.BiUI.interaction.ripple.duration}ms cubic-bezier(0.2, 0, 0, 1),
           opacity 260ms ease;
       }
 
