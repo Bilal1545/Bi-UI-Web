@@ -61,9 +61,24 @@ class BiItem extends HTMLElement {
     const slot = document.createElement("slot");
 
     const ripple = document.createElement("bi-ripple");
-    const elevation = document.createElement("bi-elevation");
+    if ( window.BiUI.styles.elevation === true ) {
+      const elevation = document.createElement("bi-elevation");
+      el.append(elevation);
+    }
 
-    el.append(slot, ripple, elevation);
+    if (window.BiUI.interaction.ripple.enabled) {
+      el.append(ripple);
+    }
+
+    if (window.BiUI.interaction.scale.enabled) {
+      this.style.setProperty("--scale-active", window.BiUI.interaction.scale.active);
+      this.style.setProperty("--scale-hover", window.BiUI.interaction.scale.hover);
+    } else {
+      this.style.setProperty("--scale-active", 1);
+      this.style.setProperty("--scale-hover", 1);
+    }
+
+    el.append(slot);
 
     const style = document.createElement("style");
 
@@ -94,8 +109,19 @@ class BiItem extends HTMLElement {
         transition:
           background 0.2s ease,
           box-shadow 0.2s ease;
+          transform ${window.BiUI.interaction.scale.duration}s ease;
 
         --ripple-color: currentColor;
+      }
+
+      button:hover,
+      a:hover {
+        transform: scale(var(--scale-hover));
+      }
+
+      button:active,
+      a:active {
+        transform: scale(var(--scale-active));
       }
 
       /* ================= DISABLED ================= */

@@ -11,3 +11,5 @@ export * from "./bi-icon.js";
 export * from "./bi-shape.js";
 export * from "./bi-elevation.js";
 export * from "./bi-item.js";
+export * from "./bi-menu.js";
+export * from "./bi-menu-item.js";
