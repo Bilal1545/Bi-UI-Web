@@ -75,7 +75,7 @@ class BiButton extends HTMLElement {
         border: none;
         outline: none;
         cursor: pointer;
-        width: max-content;
+        width: 100%;
 
         text-decoration: none;
         user-select: none;

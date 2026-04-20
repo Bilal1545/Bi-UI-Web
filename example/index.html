@@ -212,20 +212,53 @@
   <bi-item>B</bi-item>
   <bi-item>C</bi-item>
   <bi-item>D</bi-item>
-  <bi-button variant="filled">
-    Menu                                                                                                                                                                               
-    <bi-menu>
-      <bi-menu-item>                                                                                                                                                                   
-        <bi-icon slot="start">edit</bi-icon>                
-        Duzenle                                                                                                                                                                        
-      </bi-menu-item>
-      <bi-menu-item>                                                                                                                                                                   
-        <bi-icon slot="start">delete</bi-icon>              
-        Sil
-      </bi-menu-item>
-      <bi-menu-item disabled>Devre disi</bi-menu-item>                                                                                                                                 
-    </bi-menu>
-  </bi-button> 
+
+  <h2 class="bi-typescale-headline">Menu Examples</h2>
+
+  <div style="display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap;">
+    <bi-button variant="filled">
+      Menu
+      <bi-menu>
+        <bi-menu-item>
+          <bi-icon slot="start">edit</bi-icon>
+          Edit
+        </bi-menu-item>
+        <bi-menu-item>
+          <bi-icon slot="start">delete</bi-icon>
+          Delete
+        </bi-menu-item>
+        <bi-menu-item disabled>Disabled</bi-menu-item>
+      </bi-menu>
+    </bi-button>
+
+    <bi-button variant="outlined">
+      Options
+      <bi-menu>
+        <bi-menu-item>Profile</bi-menu-item>
+        <bi-menu-item>Settings</bi-menu-item>
+        <bi-menu-item>Logout</bi-menu-item>
+      </bi-menu>
+    </bi-button>
+
+    <bi-button variant="tonal">
+      Icons
+      <bi-menu>
+        <bi-menu-item>
+          <bi-icon slot="start">edit</bi-icon>
+          Edit
+          <bi-icon slot="end">keyboard_arrow_right</bi-icon>
+        </bi-menu-item>
+        <bi-menu-item>
+          <bi-icon slot="start">content_copy</bi-icon>
+          Copy
+        </bi-menu-item>
+        <bi-menu-item>
+          <bi-icon slot="start">share</bi-icon>
+          Share
+        </bi-menu-item>
+      </bi-menu>
+    </bi-button>
+  </div>
   <script type="module" src="../src/main.js"></script>
 </body>
 </html>

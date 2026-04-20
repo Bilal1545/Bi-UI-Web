@@ -47,9 +47,10 @@ class BiFab extends HTMLElement {
         font-size: 1.75rem;
         min-height: 3.5rem;
         min-width: 3.5rem;
-        display: grid; 
+        width: 100%;
+        height: 100%;
+        display: grid;
         place-items: center;
-        flex-shrink: 0;
         --ripple-color: currentColor;
         padding: 0.625rem 1.5rem;
         font-size: 0.875rem;
